@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Arrows&family=Jacquarda+Bastarda+9&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Lora:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Vinyl&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  scrollbar-width: thin;
+  scrollbar-color:  rgb(6, 6, 102) #f1f1f1;
+  
+}
+html {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  background-color: black;
+}
+body{
+  margin: 0;
+}
+nav ul li{
+  font-family: "Ubuntu", serif;
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: normal;
+  transition: transform 0.3s ease-in-out;
+}
+nav ul li:hover {
+  transform: scale(1.1);
+}
+
+/* Style the thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Style the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+.akin{
+  font-family: "Lobster", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nameh1{
+  font-family: "Lobster", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nameBox{
+  margin: 13px 0;
+}
+
+.section2{
+  font-family: "Rubik Vinyl", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.section2 .text {
+    font-family: "Lato", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+.aboutText{
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: italic;
+
+}
+.project{
+  display: grid;
+  gap: 40px !important;
+}
+.description{
+  font-family: 'Poppins', sans-serif;
+  /* font-weight: 600; */
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 10px 2px;
+  color: #f1f1f1 !important;
+}
+:Link{
+  cursor: pointer;
+}
+
+/* Small screens: 300px - 500px */
+@media only screen and (min-width: 300px) and (max-width: 500px) {
+  header {
+    padding: 0 !important;
+    margin: 3em 1.4rem !important;
+    margin-bottom: 4rem !important;
+  }
+  .logo_box{
+    font-size: 1rem;
+  }
+  
+  .section1 .nameh1{
+    font-size: 2rem;
+  }
+  
+  .nameBox{
+    margin: 2rem 1.5rem !important;
+    padding: 5px;
+  }
+  
+  button{
+    cursor: pointer;
+  }
+  .imageBox{
+    padding: 0;
+  }
+  .project{
+    gap: 3rem !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  .exprience{
+    gap: 30px;
+  }
+  footer{
+    margin-right: 1.3rem !important;
+    margin-left: 1.3rem !important;
+    padding: 5px !important;
+  }
+}
+
+/* Medium screens: 500px - 780px */
+@media only screen and (min-width: 501px) and (max-width: 780px) {
+  header {
+    padding: 0 !important;
+    margin: 0 10px !important;
+    margin-bottom: 4rem !important;
+  }
+  .logo_box{
+    font-size: 1rem;
+  }
+  
+  .section1 .nameh1{
+    font-size: 2rem;
+  }
+  .nameBox{
+    margin: 2rem 4rem !important;
+    padding: 5px;
+  }
+}
+@media only screen and (min-width: 781px) and (max-width: 1080px) {
+  header {
+    padding: 0 !important;
+    margin: 2rem 8rem !important;
+    margin-bottom: 4rem !important;
+  }
+  .logo_box{
+    font-size: 1rem;
+  }
+  
+  .section1 .nameh1{
+    font-size: 2rem;
+  }
+  .nameBox{
+    margin: 2rem 10rem !important;
+    padding: 15px;
+  }
+  footer{
+    margin-right: 4rem !important;
+    margin-left: 4rem !important;
+  }
+}
