@@ -4,6 +4,7 @@ import Homepage from './Components/Home'
 import Cursor from './Components/Cursor'
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import 'lucide-react'
 config.autoAddCss = false
 const Home = () => {
   return (

@@ -2,13 +2,14 @@
 import React from 'react'
 // import PopupNav from './NavBar'
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 import ProfileImage from './Images/profile.png';
 import Secondprofile from './Images/second.jpg'
 import Image from 'next/image';
 import NextJsimg from './Images/NextJs.png'
-import { faPlane, faHeadphones,faEnvelope, faBook, faDollar, faXmark, faComputer, faBriefcase, faLink, faLaptop, faCalendar, faGraduationCap, faLocationDot} from '@fortawesome/free-solid-svg-icons';
-import {faGithub, faLinkedin, faSquareFacebook, faTiktok, faSquareXTwitter, faTelegram} from '@fortawesome/free-brands-svg-icons'
+import {faComputer, faBriefcase, faCalendar, faGraduationCap} from '@fortawesome/free-solid-svg-icons';
+import { Github, Linkedin, Facebook, Twitter, Mail, Headphones, Plane, MapPin, BookOpenCheck, BadgeDollarSign, Laptop, LinkIcon, Calendar } from 'lucide-react';
+import {Menu} from 'lucide-react'
+import { X } from 'lucide-react';
 import Tailwindimg from './Images/tailwind.png';
 import Reactimg from './Images/React.png';
 import Nodeimg from './Images/NodeJs.png';
@@ -75,7 +76,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
 
                     <div onClick={handleMenu} className=' bg-blue-800 w-[2.5rem] md:w-[3.5rem] h-[2.5rem] md:h-[3.5rem] absolute left-[4.2rem] md:left-24 p-[0.6rem] md:p-3 top-[2px] md:top-1 rounded-full cursor-pointer'>
                         <button onClick={() => setIsOpen(!isOpen)} className="focus:outline-none">
-                                {isOpen ? <FontAwesomeIcon icon={faXmark} className="text-white w-[20px] h-[20px] md:w-[30px] md:h-[30px] text-2xl" /> : <FontAwesomeIcon className='text-white w-[20px] h-[20px] md:w-[30px] md:h-[30px] text-2xl' icon={faBars} />}
+                                {isOpen ? < X size={23} className="text-white w-[20px] h-[20px] md:w-[30px] md:h-[30px] text-2xl" /> : <Menu size={23} className='text-white w-[20px] h-[20px] md:w-[30px] md:h-[30px] text-2xl' />}
                         </button>
                     </div>
                 </div>
@@ -141,11 +142,11 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                     </div>
                     <div className='md:flex md:flex-wrap gap-4 items-center'>
                         <div className='flex bg-blue-100 p-2 items-center gap-4 text-2xl md:text-3xl font-semibold px-5 rounded-full text-blue-800 md:mb-0 mb-4'>
-                            <FontAwesomeIcon className='w-[2rem]' icon={faHeadphones} />
+                            <Headphones size={24} className='w-[2rem]' />
                             <h2>Music</h2>
                         </div>
                         <div className='flex bg-blue-100 p-2 items-center gap-4 text-2xl md:text-3xl font-semibold px-5 rounded-full text-blue-800  md:mt-0 mt-4'>
-                            <FontAwesomeIcon className='w-[2rem]' icon={faPlane}/>
+                            <Plane size={24} className='w-[2rem]' />
                             <h2>Vacation Trip</h2>
                         </div>
                     </div>
@@ -155,7 +156,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                             <h2>Coding</h2>
                         </div>
                         <div className='flex bg-blue-100 p-2 items-center gap-4 text-2xl md:text-3xl font-semibold px-5 rounded-full text-blue-800 md:mt-0 mt-4'>
-                            <FontAwesomeIcon className='w-[1.4rem]' icon={faDollar}/>
+                            <BadgeDollarSign size={24} className='w-[1.4rem]'/>
                             <h2>Money</h2>
                         </div>
                     </div>
@@ -202,7 +203,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
             <div className='project grid md:grid-cols-2 mx-0 m-2 md:m-10 gap-5 text-white'>
                 {selectedCategory === 'all' || selectedCategory === 'Backend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://favourite-plug.vercel.app'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://favourite-plug.vercel.app'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={favorite} title='favorite image' alt='project-image'/>
                     </div>
@@ -228,20 +229,20 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                                 <p>Node.js</p>
                             </div>
                             <div className='bg-white text-blue-800 rounded-full p-1 px-3'>
-                                <p>Prisma PostgreSQL</p>
+                                <p>Prisma SQL</p>
                             </div>
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Built a full-featured E-commerce website use Next.js, Talwind, Node.js, and Prisma PostgreSQL for database</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://favourite-plug.vercel.app'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Favourite-Plug'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://favourite-plug.vercel.app'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Favourite-Plug'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Backend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://food-flow-dashboard.vercel.app'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://food-flow-dashboard.vercel.app'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={FoodFlowImg} title='foodflow-image' alt='project-image'/>
                     </div>
@@ -272,15 +273,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Built a full-featured restaurant dashboard with dynamic order creation, menu settings, inventory management, procurement tracking, and admin settings.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://food-flow-dashboard.vercel.app'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/FoodFlow'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://food-flow-dashboard.vercel.app'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/FoodFlow'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Backend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://healthcareservice-client.vercel.app'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://healthcareservice-client.vercel.app'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={HealthCare} title='HealthCare-project' alt='project-image'/>
                     </div>
@@ -311,15 +312,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span>  Built healthcare platform with a focus on delivering a seamless user experience. Integrated secure backend APIs using Node.js to ensure data security and efficient performance.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://healthcareservice-client.vercel.app/'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/healthcareservice'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://healthcareservice-client.vercel.app/'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/healthcareservice'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Backend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://blog-three-gamma-51.vercel.app'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://blog-three-gamma-51.vercel.app'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={BlogImg} title='Blog-Image' alt='project-image'/>
                     </div>
@@ -350,15 +351,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Designed and implemented a blog platform utilizing Vanilla JavaScript for the frontend, with Node.js, Express, and MongoDB for backend services and data management.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://blog-three-gamma-51.vercel.app/'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Blogs-website'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://blog-three-gamma-51.vercel.app/'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Blogs-website'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://www.joyvinco.com.ng'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://www.joyvinco.com.ng'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={JovincoImg} title='Jovinco-Image' alt='project-image'/>
                     </div>
@@ -389,15 +390,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Developed a fully responsive e-commerce website using pure HTML, CSS, and JavaScript, providing a user-friendly shopping experience and seamless navigation.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://www.joyvinco.com.ng'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/JoyVinco_E-commerce'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://www.joyvinco.com.ng'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/JoyVinco_E-commerce'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://hotel-assesssment.akinolafemi.com.ng/'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://hotel-assesssment.akinolafemi.com.ng/'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={Hotel} title='Hotel-image' alt='project-image'/>
                     </div>
@@ -428,15 +429,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Created a single-page hotel booking platform using React. The project is focused on offering an intuitive user interface with fast, dynamic interactions for booking services.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://hotel-assesssment.akinolafemi.com.ng/'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Hotel-Assessment-Project'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://hotel-assesssment.akinolafemi.com.ng/'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Hotel-Assessment-Project'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://www.akinolafemi.com.ng'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://www.akinolafemi.com.ng'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={portfolioImg} title='Portfolio-image' alt='project-image'/>
                     </div>
@@ -467,15 +468,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Developed a personal portfolio website showcasing my skills, experience, and detailed information about my projects, designed to highlight my professional journey and accomplishments</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://www.akinolafemi.com.ng'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Portfolio_Next.App'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://www.akinolafemi.com.ng'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Portfolio_Next.App'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Backend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='https://gym-client.vercel.app'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='https://gym-client.vercel.app'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={GYMImg} title='Gym-image' alt='project-image'/>
                     </div>
@@ -507,15 +508,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Developed a full-stack GYM management system using TypeScript and the Next.js framework, integrating frontend and backend functionality to manage memberships, schedules, and payment processing.
                         </p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https:/.vercel.app'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/GyM'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https:/.vercel.app'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/GyM'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='Resturants/index.html'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='Resturants/index.html'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={SnakeRestaurantImg} title='SnakeRestaurant-image' alt='project-image'/>
                     </div>
@@ -546,15 +547,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> I developed a Power BI dashboard to track and analyze sales performance for a beauty store, focusing on metrics such as total sales, profit, order volume, and customer segments.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='Resturants/restaurant.html'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600'href='https://github.com/Famzy077/Snake-Restaurants'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='Resturants/restaurant.html'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center'href='https://github.com/Famzy077/Snake-Restaurants'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='Music/index.html'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='Music/index.html'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={MusicImg} title='Music-image' alt='project-image'/>
                     </div>
@@ -585,15 +586,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> Enjoy seamless music streaming with this intuitive JavaScript-powered app. Discover your favorite tunes and playlists with ease.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='Music/index.html'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href=''><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='Music/index.html'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href=''><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                ) : null}
                {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='Age_Calculator/AgeCalculator.html'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='Age_Calculator/AgeCalculator.html'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={AgeCalcImg} title='AgeCalculator-image' alt='project-image'/>
                     </div>
@@ -624,15 +625,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> A simple, user-friendly tool that calculates exact age based on birthdate input. Displays years, months, and days, with responsive design for seamless use across devices.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='Age_Calculator/AgeCalculator.html'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Code-Alpha/tree/main/Code%20Alpha/Task%20Two/Music'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='Age_Calculator/AgeCalculator.html'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Code-Alpha/tree/main/Code%20Alpha/Task%20Two/Music'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='Pops_Up/index.html'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='Pops_Up/index.html'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={PopupImg} title='Popup-image' alt='project-image'/>
                     </div>
@@ -663,15 +664,15 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> I developed a dynamic pop-up modal with customizable content, triggered by user actions. Built for seamless integration into websites.</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='Pops_Up/index.html'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Pop-up-'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='Pops_Up/index.html'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Pop-up-'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
                 ) : null}
                 {selectedCategory === 'all' || selectedCategory === 'Frontend' ? (
                 <div className='p-5 mx-3 bg-blue-950 rounded-3xl relative'>
-                    <Link href='Calculator-File/calculator.html'><FontAwesomeIcon className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]' icon={faLink}/></Link>
+                    <Link href='Calculator-File/calculator.html'><LinkIcon size={20} className='absolute right-10 text-blue-800 bg-white p-[5px] cursor-pointer rounded-full top-3 w-[1.5rem] h-[1.5rem] md:w-[2rem] md:h-[2rem]'/></Link>
                     <div className='mt-10 mb-2'>
                         <Image className='rounded-2xl h-[fit-content] md:h-[19.5rem]' src={CalcImg} title='CalCulator-image' alt='project-image'/>
                     </div>
@@ -702,8 +703,8 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         </div>
                         <p className='text-white font-serif description'><span className='font-semibold'>Description:</span> I built a responsive calculator with basic to advanced arithmetic operations, featuring a sleek UI and keyboard input support</p>
                         <div className=' text-white text-xl md:text-2xl font- rounded-xl flex justify-around my-2 mt-5'>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='Calculator-File/calculator.html'><FontAwesomeIcon className='text-white mr-3' icon={faLink} />View</Link>
-                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600' href='https://github.com/Famzy077/Calculator-File'><FontAwesomeIcon className='text-white mr-3' icon={faGithub} />GitHub</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='Calculator-File/calculator.html'><LinkIcon className='text-white mr-3'/>View</Link>
+                            <Link className='bg-black text-white px-3 md:px-6 p-1 rounded-xl text-center transition-transform duration-300 hover:scale-105 hover:bg-blue-600 flex items-center' href='https://github.com/Famzy077/Calculator-File'><Github size={24} className='text-white mr-3' />GitHub</Link>
                         </div>
                     </div>
                 </div>
@@ -729,11 +730,11 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                             <p><FontAwesomeIcon className='pr-2' icon={faCalendar}/>2024 - Present</p>
                         </div>
                     </div>
-                    <h1 className='my-2 pl-4 text-2xl font-semibold'><FontAwesomeIcon className='mr-3' icon={faLaptop}/>Software Developer</h1>
+                    <h1 className='my-2 pl-4 text-2xl font-semibold'><Laptop size={25} className='mr-3'/>Software Developer</h1>
                     <div>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>I build and deploy Joyvinco website from scratch, applying great user interface that meet user needs</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Applying all neccessary functionality to make it stand out as E-commerce website</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Strong understanding of E-commerce principles, user experience design, and team management</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>I build and deploy Joyvinco website from scratch, applying great user interface that meet user needs</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Applying all neccessary functionality to make it stand out as E-commerce website</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Strong understanding of E-commerce principles, user experience design, and team management</p>
                     </div>
                 </div>
                 <div className=' bg-blue-800 opacity-85 rounded-3xl pb-[2rem]'>
@@ -751,12 +752,12 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         <p><FontAwesomeIcon className='pr-2' icon={faCalendar}/>2024 - Present</p>
                         </div>
                     </div>
-                    <h1 className='my-2 pl-4 text-2xl font-semibold'><FontAwesomeIcon className='mr-3' icon={faLaptop}/>Backend Engineer</h1>
+                    <h1 className='my-2 pl-4 text-2xl font-semibold'><Laptop size={25} className='mr-3'/>Backend Engineer</h1>
                     <div>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Build scalable, secure backend systems using Python Django, and PostgreSQL.</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Collaborating with front-end developers to integrate APIs and database functionalities. </p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Ensuring the reliability and performance of platforms.</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Build and maintain server-side logic, APIs, and database systems</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Build scalable, secure backend systems using Python Django, and PostgreSQL.</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Collaborating with front-end developers to integrate APIs and database functionalities. </p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Ensuring the reliability and performance of platforms.</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Build and maintain server-side logic, APIs, and database systems</p>
                     </div>
                 </div>
                 <div className=' bg-blue-800 opacity-85 rounded-3xl pb-[2rem]'>
@@ -774,12 +775,12 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         <p><FontAwesomeIcon className='pr-2' icon={faCalendar}/>Jul/2024 - Oct/2024</p>
                         </div>
                     </div>
-                    <h1 className='my-2 pl-4 text-2xl font-semibold'><FontAwesomeIcon className='mr-3' icon={faLaptop}/>Web Developer (Intern)</h1>
+                    <h1 className='my-2 pl-4 text-2xl font-semibold'><Laptop size={25} className='mr-3'/>Web Developer (Intern)</h1>
                     <div>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Contributing to the team’s overall growth by sharing valuable resources and learning materials related to front-end developmentand and helping them understand the key concepts.</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Trained new students and interns on the basics of web development</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Implemented visual aids and technology-based learning tools to support student learning</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Monitored student improvement, productivity, attendance and followed up on absent</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Contributing to the team’s overall growth by sharing valuable resources and learning materials related to front-end developmentand and helping them understand the key concepts.</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Trained new students and interns on the basics of web development</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Implemented visual aids and technology-based learning tools to support student learning</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Monitored student improvement, productivity, attendance and followed up on absent</p>
                     </div>
                 </div>
                 <div className=' bg-blue-800 opacity-85 rounded-3xl pb-[2rem]'>
@@ -797,10 +798,10 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         <p><FontAwesomeIcon className='pr-2' icon={faCalendar}/>June/2024 - Sept/2024</p>
                         </div>
                     </div>
-                    <h1 className='my-2 pl-4 text-2xl font-semibold'><FontAwesomeIcon className='mr-3' icon={faLaptop}/>Internship Program</h1>
+                    <h1 className='my-2 pl-4 text-2xl font-semibold'><Laptop size={25} className='mr-3'/>Internship Program</h1>
                     <div>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Translating Figma designs into pixel-perfect interactive web interfaces using HTML, CSS, JavaScript and React.</p>
-                        <p className='text-xl my-2 pl-4'> <FontAwesomeIcon className='mr-3 text-sm' icon={faLaptop}/>Actively contributing to the development of key features using HTML, React.Js and Styled-Components Kept work area organized and clutter free.</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Translating Figma designs into pixel-perfect interactive web interfaces using HTML, CSS, JavaScript and React.</p>
+                        <p className='text-xl my-2 pl-4'> <Laptop size={24} className='mr-3 text-sm'/>Actively contributing to the development of key features using HTML, React.Js and Styled-Components Kept work area organized and clutter free.</p>
                     </div>
                 </div>
             </main>
@@ -824,7 +825,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         <p className='bg-white mt-5 pl-3 md:mt-0 text-blue-800 font-semibold text-2xl rounded-full p-2'>Tech School</p>
                     </div>
                     <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><FontAwesomeIcon className='bg-black text-white rounded-full text-xl p-2 w-[1.5rem] h-[1.5rem]' icon={faGraduationCap}/>Diploma</h1>
-                    <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><FontAwesomeIcon className='bg-black text-white rounded-full text-xl p-2 w-[1.5rem] h-[1.5rem]' icon={faBook}/>Full-Stack Development </h1>
+                    <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><BookOpenCheck size={40} className='bg-black text-white rounded-full p-2'/>Full-Stack Development </h1>
                     <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><FontAwesomeIcon className='bg-black text-white rounded-full text-xl w-[1.5rem] h-[1.5rem] p-2' icon={faLocationDot}/>DWT Lagos State</h1>
                 </main>
                 <main className='bg-blue-200 rounded-3xl p-5 md:p-10 w-[100%]'>
@@ -833,7 +834,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                         <p className='bg-white mt-5 pl-3 md:mt-0 text-blue-800 font-semibold text-2xl rounded-full p-2'>University</p>
                     </div>
                     <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><FontAwesomeIcon className='bg-black text-white rounded-full text-xl p-2 w-[1.5rem] h-[1.5rem]' icon={faGraduationCap}/>National Open University Of Nigeria</h1>
-                    <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><FontAwesomeIcon className='bg-black text-white rounded-full text-xl p-2 w-[1.5rem] h-[1.5rem]' icon={faBook}/>BSC Computer Science</h1>
+                    <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><BookOpenCheck size={40} className='bg-black text-white rounded-full text-xl p-2'/>BSC Computer Science</h1>
                     <h1 className='my-4 flex gap-4 text-blue-900 items-center text-xl font-semibold'><FontAwesomeIcon className='bg-black text-white rounded-full text-xl w-[1.5rem] h-[1.5rem] p-2' icon={faLocationDot}/>Lagos Study Center</h1>
                 </main>
             </div>
@@ -845,25 +846,25 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                 <div className='md:flex flex-wrap gap-5 justify-center p-3'>
                     <div className='md:my-0 my-[1rem]' >
                         <Link className='flex md:gap-[0.5rem] justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='https://www.linkedin.com/in/akinola-femi077?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'>
-                            <FontAwesomeIcon className='bg-blue-800 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faLinkedin} />
+                            <Linkedin size={24} className='bg-blue-800 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full'/>
                             <h1 className='text-blue-800 px-4'>LinkedIn</h1>
                         </Link>
                     </div>
                     <div className='md:my-0 my-[1rem]' >
                         <Link className='flex md:gap-[0.5rem] px-2 justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='https://x.com/famzy_Tech'>
-                            <FontAwesomeIcon className='bg-black text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faSquareXTwitter} />
+                            <Twitter size={24} className='bg-black text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' />
                             <h1 className='text-black px-4'>Twitter</h1>
                         </Link>
                     </div>
                     <div className='md:my-0 my-[1rem]' >
                         <Link className='flex md:gap-[0.5rem] px-2 justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='https://www.tiktok.com/@famzy_02?_t=ZM-8tbYEHIwDH3&_r=1'>
-                            <FontAwesomeIcon className='bg-red-700 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faTiktok} />
+                            {/* <FontAwesomeIcon className='bg-red-700 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faTiktok} /> */}
                             <h1 className='text-black px-4'>Tiktok</h1>
                         </Link>
                     </div>
                     <div className='md:my-0 my-[1rem] mb-0' >
                         <Link className='flex md:gap-[0.5rem] px-2 justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='https://github.com/Famzy077'>
-                            <FontAwesomeIcon className='bg-black text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faGithub} />
+                            <Github size={24} className='bg-black text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' />
                             <h1 className='text-black px-4'>Github</h1>
                         </Link>
                     </div>
@@ -871,19 +872,19 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                 <div className='md:flex flex-wrap gap-5 justify-center p-3'>
                     <div className='md:my-0 mt-0 mb-[1rem]' >
                         <Link className='flex md:gap-[0.5rem] px-2 justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='https://web.facebook.com/famzyCode/'>
-                            <FontAwesomeIcon className='bg-blue-800 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faSquareFacebook} />
+                            <Facebook className='bg-blue-800 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' size={24} />
                             <h1 className='text-blue-800 px-4'>Facebook</h1>
                         </Link>
                     </div>
                     <div className='md:my-0 mt-[1rem]' >
                         <Link className='flex md:gap-[0.5rem] px-2 justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='https://t.me/Famzy07'>
-                            <FontAwesomeIcon className='bg-blue-700 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faTelegram} />
+                            {/* < className='bg-blue-700 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' /> */}
                             <h1 className='text-blue-700 px-4'>Telegram</h1>
                         </Link>
                     </div>
                     <div className='md:my-0 my-[1rem]' >
                         <Link className='flex md:gap-[0.5rem] px-2 justify-between bg-white text-2xl font-semibold md:text-4xl items-center p-1 md:p-2 rounded-full' href='mailto:akinolafemi573@gmail.com'>
-                            <FontAwesomeIcon className='bg-gray-600 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' icon={faEnvelope} />
+                            <Mail size={24} className='bg-gray-600 text-white p-2 w-[2.5rem] h-[2.5rem] rounded-full' />
                             <h1 className='text-gray-600 px-4'>Email</h1>
                         </Link>
                     </div>
