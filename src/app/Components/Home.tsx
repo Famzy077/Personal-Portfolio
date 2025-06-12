@@ -91,7 +91,7 @@ const Home: React.FC<HomeProps> = ({ children }) => {
                 <h1>A Software Engineer | Web Developer with <span className='bg-blue-800 rounded-full px-2 capitalize'> years of experience</span></h1>
             </main>
             <div className='mt-3 text-center'>
-                <button className='border-2 px-4 border-blue-800 text-blue-800 p-2 rounded-2xl mr-3 hover:text-white hover:bg-blue-800'><Link href='https://docs.google.com/document/d/16Y18WIM1lIMWcJqDB-rfylWsfgKSzY-pcB_aW857574/edit?tab=t.0'>Resume</Link></button>
+                <button className='border-2 px-4 border-blue-800 text-blue-800 p-2 rounded-2xl mr-3 hover:text-white hover:bg-blue-800'><Link href='https://docs.google.com/document/d/16Y18WIM1lIMWcJqDB-rfylWsfgKSzY-pcB_aW857574'>Resume</Link></button>
                 <button className='bg-blue-800 text-white p-2 rounded-2xl border-2 border-blue-800 hover:bg-transparent px-4 hover:border-blue-800'><Link href='mailto:akinolafemi573@gmail.com'>Hire me</Link></button>
             </div>
             <section className='flex gap-0 md:gap-6 justify-center p-1 md:p-4'>
