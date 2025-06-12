@@ -6,8 +6,8 @@ import ProfileImage from './Images/profile.png';
 import Secondprofile from './Images/second.jpg'
 import Image from 'next/image';
 import NextJsimg from './Images/NextJs.png'
-import {faComputer, faBriefcase, faCalendar, faGraduationCap} from '@fortawesome/free-solid-svg-icons';
-import { Github, Linkedin, Facebook, Twitter, Mail, Headphones, Plane, MapPin, BookOpenCheck, BadgeDollarSign, Laptop, LinkIcon, Calendar } from 'lucide-react';
+import {faComputer, faBriefcase, faCalendar, faGraduationCap, faLocationDot} from '@fortawesome/free-solid-svg-icons';
+import { Github, Linkedin, Facebook, Twitter, Mail, Headphones, Plane, BookOpenCheck, BadgeDollarSign, Laptop, LinkIcon, Calendar } from 'lucide-react';
 import {Menu} from 'lucide-react'
 import { X } from 'lucide-react';
 import Tailwindimg from './Images/tailwind.png';
