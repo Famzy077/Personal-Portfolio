@@ -31,7 +31,7 @@ import CalcImg from './Images/calculator_.png'
 import JobImg from './Images/job.png';
 import portfolioImg from './Images/Portfolio.png';
 import FoodFlowImg from './Images/FoodFlow.jpg'
-import favorite from "./Images/favorite.png"
+import favorite from "/public/Favorite.png"
 
 interface HomeProps {
   children: React.ReactNode;
