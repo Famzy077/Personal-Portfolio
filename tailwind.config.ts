@@ -13,10 +13,13 @@ export default {
         'medium': '501px', // Custom medium screen breakpoint
       },
       colors: {
-        background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: '#1E293B',
+        accent: '#3B82F6',
+        background: '#F8FAFC',
       },
     },
   },
+  
   plugins: [],
 } satisfies Config;
