@@ -6,10 +6,12 @@ import {
   SiPostgresql, SiMongodb, SiPrisma, SiRedis, SiGit, SiGithub, SiVercel,
   SiTailwindcss, SiSass, SiHtml5, SiCss3, SiExpress, SiJsonwebtokens
 } from 'react-icons/si';
-import { VscTerminalPowershell } from "react-icons/vsc";
+import { VscTerminalPowershell, VscTerminalBash } from "react-icons/vsc";
+import { SiCloudinary, SiFirebase, SiRender } from 'react-icons/si';
+import { Clock } from 'lucide-react';
 
 
-// --- 1. The Data for All Your Skills (Now Categorized) ---
+// --- 1. The Data for All Skills (Now Categorized) ---
 const languagesAndFrameworks = [
   { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E', textColor: 'text-black' },
   { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6', textColor: 'text-white' },
@@ -29,6 +31,8 @@ const databasesAndStorage = [
   { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248', textColor: 'text-white' },
   { name: 'PrismaORM', icon: <SiPrisma />, color: '#2D3748', textColor: 'text-white' },
   { name: 'Redis', icon: <SiRedis />, color: '#DC382D', textColor: 'text-white' },
+  { name: 'Cloudinary', icon: <SiCloudinary />, color: '#3448C5', textColor: 'text-white' },
+  { name: 'Firebase', icon: <SiFirebase />, color: '#2C382D', textColor: 'text-white' },
 ];
 
 const toolsAndDevOps = [
@@ -37,6 +41,9 @@ const toolsAndDevOps = [
   { name: 'Vercel', icon: <SiVercel />, color: '#000000', textColor: 'text-white' },
   { name: 'JWT', icon: <SiJsonwebtokens />, color: '#000000', textColor: 'text-white' },
   { name: 'CLI', icon: <VscTerminalPowershell />, color: '#FFFFFF', textColor: 'text-black' },
+  { name: 'BASH', icon: <VscTerminalBash />, color: '#00FF00', textColor: 'text-white' },
+  { name: 'Render', icon: <SiRender />, color: '#3A3AFA', textColor: 'text-white' },
+  { name: 'Cron-Job', icon: <Clock />, color: '#F05032', textColor: 'text-white' },
 ];
 
 
@@ -61,7 +68,7 @@ const SkillCard = ({ skill }) => (
 export const SkillsShowcase = () => {
   return (
     <section className="mb-6 md:py-5 bg-gray-50 dark:bg-slate-900">
-      <div className=" lg:mx-28 mx-auto px-6">
+      <div className=" lg:mx-28 mx-auto px-4">
         <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">My Tech Stack & Skills</h2>
             <p className="text-md md:text-lg text-slate-500 dark:text-slate-400 mt-2">The tools and technologies I use to build modern web applications.</p>
@@ -70,7 +77,7 @@ export const SkillsShowcase = () => {
         {/* Languages & Frameworks Section */}
         <div className="mb-12">
             <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border-l-4 border-blue-500 pl-4">Languages & Frameworks</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
                 {languagesAndFrameworks.map((skill) => (
                     <SkillCard key={skill.name} skill={skill} />
                 ))}
@@ -80,7 +87,7 @@ export const SkillsShowcase = () => {
         {/* Databases & Storage Section */}
         <div className="mb-12">
             <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border-l-4 border-blue-500 pl-4">Databases & Storage</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
                 {databasesAndStorage.map((skill) => (
                     <SkillCard key={skill.name} skill={skill} />
                 ))}
@@ -90,7 +97,7 @@ export const SkillsShowcase = () => {
         {/* Tools & DevOps Section */}
         <div>
             <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border-l-4 border-blue-500 pl-4">Tools & DevOps</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
                 {toolsAndDevOps.map((skill) => (
                     <SkillCard key={skill.name} skill={skill} />
                 ))}

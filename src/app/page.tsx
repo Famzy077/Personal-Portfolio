@@ -21,14 +21,6 @@ const App = () => {
     <FirebaseProvider>
       <ThemeProvider>
         <div className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-sans">
-          <style>{`
-            @keyframes float {
-              0% { transform: translateY(0px); }
-              50% { transform: translateY(-10px); }
-              100% { transform: translateY(0px); }
-            }
-            .animate-float { animation: float 6s ease-in-out infinite; }
-          `}</style>
 
           {isAdmin ? <AdminPage /> : <PortfolioPage />}
 

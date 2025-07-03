@@ -31,7 +31,7 @@ export const Hero = () => (
     <section className="pt-32 pb-2 md:pt-16 md:pb-10 text-center overflow-hidden">
         <div className="cotainer mx-auto px-6">
             <AnimatedSection>
-                <h2 className="text-sm md:text-xl font-medium text-blue-500 dark:text-blue-400 mb-2">A Software Engineer & Web Developer</h2>
+                <h2 className="max-sm:text-[18px] md:text-2xl font-medium text-blue-500 dark:text-blue-400 mb-2">A Software Engineer & Web Developer</h2>
                 <h1 className="text-2xl md:text-6xl font-bold text-slate-800 dark:text-slate-100 mb-4">I&apos;m Akinola Femi</h1>
                 <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 max-w-3xl mx-auto mb-8">Passionate about transforming the African technology industry with innovative solutions, specializing in JavaScript, Python, React, and Node.js.</p>
                 <div className="flex justify-center items-center space-x-4"><a href="#projects" className="bg-blue-600 max-sm:text-[10.5px] text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-md">View Projects</a><a href="#" className="border-2 border-slate-300 max-sm:text-[10.5px] dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold px-7 py-3 max-sm:py-2.5 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-all duration-300">Download CV</a></div>

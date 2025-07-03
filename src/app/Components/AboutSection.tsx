@@ -21,7 +21,7 @@ export const About = () => {
                     <div className="md:col-span-2">
                         <div className="relative">
                              <div className="absolute -top-4 -left-4 w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg transform -rotate-3"></div>
-                             <Image src={AboutImage} alt="About Akinola Femi" width={100} height={100} className="relative w-[fit-content] bg-zinc-300 rounded-lg shadow-lg h-[97vh]  object-cover" />
+                             <Image src={AboutImage} alt="About Akinola Femi" width={100} height={100} className="relative w-[fit-content] bg-zinc-300 rounded-lg shadow-lg h-[97vh] max-sm:h-fit  object-cover" />
                         </div>
                     </div>
                     <div className="md:col-span-3">

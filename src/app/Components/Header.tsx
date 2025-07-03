@@ -18,7 +18,7 @@ export const Header = () => {
 
     return (
         <>
-            <header className={`fixed top-0 max-sm-top-7 left-0 right-0 z-50 max-sm:borde rounded-lg transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-md max-sm:border'  : 'bg-transparent'}`}>
+            <header className={`fixed max-md:top-0 top-0 max-sm:-top-7 left-0 right-0 z-50 max-sm:borde rounded-lg transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-md max-sm:border'  : 'bg-transparent'}`}>
                 <nav className="containe mx-auto px-6 py-3 flex justify-between items-center">
                     <a href="#" className="text-2xl section2 font-bold text-slate-800 dark:text-slate-200">AF.dev</a>
                     <div className="hidden md:flex items-center space-x-8">
