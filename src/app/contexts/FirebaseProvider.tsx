@@ -1,7 +1,15 @@
 "use client"
 import React, { useState, useEffect, createContext, useContext, ReactNode } from 'react';
 import { onAuthStateChanged, signInAnonymously, signInWithCustomToken, User, Auth } from "firebase/auth";
-import { auth } from '../firebase'; // Import from your config file
+import { auth } from '../firebase'; // Adjust path as needed
+
+// --- Type Augmentation for Global Window Object ---
+declare global {
+    interface Window {
+        __app_id?: string;
+        __initial_auth_token?: string;
+    }
+}
 
 // Define the shape of the context's value
 interface FirebaseContextType {
@@ -31,13 +39,9 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({ children }) 
     const [user, setUser] = useState<User | null>(null);
     const [isAuthReady, setIsAuthReady] = useState(false);
 
-    const appId = typeof window !== 'undefined' && (window as any).__app_id !== undefined
-        ? (window as any).__app_id
-        : 'default-app-id';
-    // Access __initial_auth_token from the global window object to avoid TS error
-    const initialAuthToken = typeof window !== 'undefined' && (window as any).__initial_auth_token !== undefined
-        ? (window as any).__initial_auth_token
-        : null;
+    // Safely access the global variables without using `any`
+    const appId = (typeof window !== 'undefined' && window.__app_id) || 'default-app-id';
+    const initialAuthToken = (typeof window !== 'undefined' && window.__initial_auth_token) || null;
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -57,12 +61,12 @@ export const FirebaseProvider: React.FC<FirebaseProviderProps> = ({ children }) 
                     }
                 } catch (error) {
                     console.error("Firebase authentication error:", error);
-                    setIsAuthReady(true);
+                    setIsAuthReady(true); // Ensure app continues even on auth error
                 }
             }
         });
         return () => unsubscribe();
-    }, [initialAuthToken]);
+    }, [initialAuthToken]); // Dependency array is correct
 
     const userId = user?.uid || 'anonymous';
     const projectsCollectionPath = user ? `/artifacts/${appId}/users/${userId}/projects` : null;

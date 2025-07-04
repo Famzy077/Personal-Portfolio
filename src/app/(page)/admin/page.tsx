@@ -1,9 +1,9 @@
 'use client'
 import React, { useState, useEffect, FC, ChangeEvent, FormEvent } from 'react';
-import { collection, doc, addDoc, onSnapshot, updateDoc, deleteDoc, setDoc } from "firebase/firestore";
+import { collection, doc, addDoc, onSnapshot, updateDoc, deleteDoc } from "firebase/firestore";
 import { useFirebase } from '../../contexts/FirebaseProvider';
 import { db } from '@/app/firebase';
-import { initialProjectsData, Project } from '../../Data/initialData';
+import {  Project } from '../../Data/initialData';
 import Link from 'next/link';
 import Image from 'next/image';
 
