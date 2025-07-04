@@ -207,7 +207,7 @@ const AdminPage: FC = () => {
                     ) : (
                         <div className="space-y-4">
                             {projects.map(p => (
-                                <div key={p.id} className="bg-white dark:bg-slate-900 p-4 rounded-lg shadow-lg flex justify-between items-center">
+                                <div key={p.id} className="bg-white dark:bg-slate-900 p-4 rounded-lg shadow-lg flex justify-between items-center overflow-x-auto">
                                     <div className='flex items-center gap-4'>
                                         <Image className="rounded-lg object-cover" src={p.imageUrl} height={60} width={80} alt={p.title}/>
                                         <p className="font-bold text-slate-800 dark:text-slate-200">{p.title}</p>
