@@ -87,7 +87,7 @@ export const ProjectSection = () => {
 
     return (
         <section id="projects" className="py-16 lg:px-14 bg-slate-100 dark:bg-slate-950">
-            <div className="containe mx-auto px-6">
+            <div className="mx-auto px-6">
                 <AnimatedSection>
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 dark:text-slate-100 mb-4">My Work & Projects</h2>
                     <p className="text-center text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto">Here are some of the projects I&apos;m proud to have worked on. Each one represents a unique challenge and a learning opportunity.</p>
@@ -105,7 +105,7 @@ export const ProjectSection = () => {
                 {loading ? (
                     <div className="text-center text-slate-500 dark:text-slate-400">Loading Projects...</div>
                 ) : (
-                    <div className="grid md:grid-cols-2 lg:mx-10 lg:grid-cols-2 gap-y-5 gap-12">
+                    <div className="grid md:grid-cols-2 lg:mx-10 lg:grid-cols-2 gap-y-8 gap-12">
                         {filteredProjects.length > 0 ? (
                             filteredProjects.map((project) => <ProjectCard key={project.id} project={project} />)
                         ) : (

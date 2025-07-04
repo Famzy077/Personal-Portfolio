@@ -1,6 +1,8 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
+  darkMode: "class",
+
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,18 +10,13 @@ export default {
   ],
   theme: {
     extend: {
-      screens: {
-        'small': '320px',  // Custom small screen breakpoint
-        'medium': '501px', // Custom medium screen breakpoint
-      },
-      colors: {
-        foreground: "var(--foreground)",
-        primary: '#1E293B',
-        accent: '#3B82F6',
-        background: '#F8FAFC',
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
-  
   plugins: [],
-} satisfies Config;
+};
+export default config;

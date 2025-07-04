@@ -51,14 +51,14 @@ const toolsAndDevOps = [
 const SkillCard = ({ skill }) => (
   <AnimatedSection>
     <div
-        className="flex items-center gap-4 p-4 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
-        style={{ backgroundColor: skill.color }}
+      className="flex items-center gap-4 max-sm:gap-2 p-4 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
+      style={{ backgroundColor: skill.color }}
     >
-        <div className={`text-3xl max-sm:text-xl ${skill.textColor}`}>
-        {skill.icon}
-        </div>
-        <h3 className={`text-md max-sm:text-sm font-semibold ${skill.textColor}`}>
-        {skill.name}
+      <div className={`text-3xl max-sm:text-sm ${skill.textColor}`}>
+      {skill.icon}
+      </div>
+      <h3 className={`text-md max-sm:text-sm font-semibold ${skill.textColor}`}>
+      {skill.name}
         </h3>
     </div>
   </AnimatedSection>
@@ -69,10 +69,12 @@ export const SkillsShowcase = () => {
   return (
     <section className="mb-6 md:py-5 bg-gray-50 dark:bg-slate-900">
       <div className=" lg:mx-28 mx-auto px-4">
-        <div className="text-center mb-12">
+        <AnimatedSection>
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">My Tech Stack & Skills</h2>
             <p className="text-md md:text-lg text-slate-500 dark:text-slate-400 mt-2">The tools and technologies I use to build modern web applications.</p>
-        </div>
+          </div>
+        </AnimatedSection>
         
         {/* Languages & Frameworks Section */}
         <div className="mb-12">

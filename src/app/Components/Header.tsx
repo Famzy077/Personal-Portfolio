@@ -1,13 +1,12 @@
 "use client"
 import { useState, useEffect } from 'react';
-import {MenuIcon, XIcon} from '../Icon/Icons'
+import {XIcon} from '../Icon/Icons'
+import { MenuSquare } from 'lucide-react';
 import ThemeToggle from '../Theme/ThemeProvider';
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     
-    
-
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
@@ -26,16 +25,18 @@ export const Header = () => {
                 `}
             >
 
-                <nav className="mx-auto px-6 py-3 flex justify-between items-center">
+                <nav className="mx-auto px-6 max-sm:px-3 py-3 max-sm:py-1.5 flex justify-between items-center">
                     <a href="#" className="text-2xl section2 font-bold text-slate-800 dark:text-slate-200">AF.dev</a>
                     <div className="hidden md:flex items-center space-x-8">
                         {navLinks.map(link => <a key={link} href={`#${link.toLowerCase()}`} className="text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">{link}</a>)}
                     </div>
-                    <div className="hidden md:flex items-center space-x-4">
-                        <ThemeToggle />
-                        <a href="#contact" className="bg-blue-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Hire Me</a>
+                    <div className='flex gap-9'>
+                        <div className=" max-sm:text-sm md:flex items-center space-x-4">
+                            <ThemeToggle />
+                            <a href="#contact" className="bg-blue-600 md:flex hidden  text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Hire Me</a>
+                        </div>
+                        <button onClick={() => setIsOpen(true)} className="md:hidden text-xl text-slate-800 dark:text-slate-200"><MenuSquare size={33}/></button>
                     </div>
-                    <button onClick={() => setIsOpen(true)} className="md:hidden text-slate-800 dark:text-slate-200"><MenuIcon /></button>
                 </nav>
             </header>
             
