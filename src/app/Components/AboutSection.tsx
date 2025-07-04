@@ -17,7 +17,7 @@ export const About = () => {
         <div className="containe mx-auto px-6">
             <AnimatedSection>
                 <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 dark:text-slate-100 mb-12">About Me</h2>
-                <div className="grid md:grid-cols-5 gap-12 items-center">
+                <div className="grid md:grid-cols-1 lg:grid-cols-5 gap-12 items-center">
                     <div className="md:col-span-2">
                         <div className="relative">
                              <div className="absolute -top-4 -left-4 w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg transform -rotate-3"></div>

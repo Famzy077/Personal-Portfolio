@@ -16,15 +16,13 @@ module.exports = {
   parserOptions: {
     project: ["tsconfig.json", "tsconfig.dev.json"],
     sourceType: "module",
+    // This line is also important. It tells the parser where to find the tsconfig file.
+    tsconfigRootDir: __dirname,
   },
   ignorePatterns: [
     "/lib/**/*", // Ignore built files.
-    "/generated/**/*", // Ignore generated files.
   ],
-  plugins: [
-    "@typescript-eslint",
-    "import",
-  ],
+  plugins: ["@typescript-eslint", "import"],
   rules: {
     "quotes": ["error", "double"],
     "import/no-unresolved": 0,

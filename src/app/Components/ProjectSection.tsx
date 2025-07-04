@@ -28,10 +28,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
     return (
         <div ref={ref as React.RefObject<HTMLDivElement>} className={`bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden transition-all duration-500 ease-out transform hover:-translate-y-2 hover:shadow-xl dark:shadow-slate-900/50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <Image src={project.imageUrl} alt={project.title} width={600} height={400} className="w-full h-56 object-cover" onError={(e) => (e.currentTarget as HTMLImageElement).src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Error'} />
+            <Image src={project.imageUrl} alt={project.title} width={600} height={500} className="w-full h-[16rem] object-fill" onError={(e) => (e.currentTarget as HTMLImageElement).src='https://placehold.co/600x400/1e293b/ffffff?text=Image+Error'} />
             <div className="p-6">
                 <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{project.title}</h3>
-                <p className="text-slate-600 dark:text-slate-300 mb-4 h-24 overflow-hidden">{project.description}</p>
+                <p className="text-slate-600 dark:text-slate-300 mb-7 overflow-hidden">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                     {tagsArray.map(tag => (
                         <span key={tag} className="text-xs font-semibold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1 rounded-full">
@@ -86,7 +86,7 @@ export const ProjectSection = () => {
         : projects.filter(p => p.category === selectedCategory);
 
     return (
-        <section id="projects" className="py-20 bg-slate-100 dark:bg-slate-950">
+        <section id="projects" className="py-16 lg:px-14 bg-slate-100 dark:bg-slate-950">
             <div className="containe mx-auto px-6">
                 <AnimatedSection>
                     <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 dark:text-slate-100 mb-4">My Work & Projects</h2>
@@ -105,7 +105,7 @@ export const ProjectSection = () => {
                 {loading ? (
                     <div className="text-center text-slate-500 dark:text-slate-400">Loading Projects...</div>
                 ) : (
-                    <div className="grid md:grid-cols-2 lg:mx-10 lg:grid-cols-2 gap-12">
+                    <div className="grid md:grid-cols-2 lg:mx-10 lg:grid-cols-2 gap-y-5 gap-12">
                         {filteredProjects.length > 0 ? (
                             filteredProjects.map((project) => <ProjectCard key={project.id} project={project} />)
                         ) : (
