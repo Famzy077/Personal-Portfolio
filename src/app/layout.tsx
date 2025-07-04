@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FirebaseProvider } from "./contexts/FirebaseProvider";
 import { ThemeProvider } from "./Theme/ThemeProvider";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from 'react-hot-toast';
 import "./globals.css";
 import React from "react";
 
@@ -40,6 +41,8 @@ export default function RootLayout({
                   .animate-float { animation: float 6s ease-in-out infinite; }
                 `}</style>
                 {children}
+                
+              <Toaster position="top-right" />
               </div>
           </FirebaseProvider>
         </ThemeProvider>
