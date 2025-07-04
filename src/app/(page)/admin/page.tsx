@@ -3,33 +3,35 @@ import React, { useState, useEffect, FC, ChangeEvent, FormEvent } from 'react';
 import { collection, doc, addDoc, onSnapshot, updateDoc, deleteDoc } from "firebase/firestore";
 import { useFirebase } from '../../contexts/FirebaseProvider';
 import { db } from '@/app/firebase';
-import {  Project } from '../../Data/initialData';
+import { Project } from '../../Data/initialData';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const AdminPage: FC = () => {
-    const { projectsCollectionPath, isAuthReady } = useFirebase();
+    const { publicProjectsPath, isAuthReady } = useFirebase();
     const [projects, setProjects] = useState<Project[]>([]);
     const [currentProject, setCurrentProject] = useState<Omit<Project, 'id'>>({ title: '', description: '', category: 'Frontend', imageUrl: '', liveUrl: '', githubUrl: '', tags: '' });
-    const [imageFile, setImageFile] = useState<File | null>(null); // State for the selected file
+    const [imageFile, setImageFile] = useState<File | null>(null);
     const [editingId, setEditingId] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
 
     // --- Cloudinary Settings ---
-    // Securely read the variables from the environment.
     const CLOUDINARY_CLOUD_NAME = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
     const CLOUDINARY_UPLOAD_PRESET = process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET;
     
     useEffect(() => {
-        if (!isAuthReady || !projectsCollectionPath) return;
-        const projectsCollection = collection(db, projectsCollectionPath);
+        if (!isAuthReady || !publicProjectsPath) return;
+
+        const projectsCollection = collection(db, publicProjectsPath);
         const unsubscribe = onSnapshot(projectsCollection, (snapshot) => {
             const projectsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
             setProjects(projectsData);
+        }, (error) => {
+            console.error("AdminPage Snapshot listener error:", error);
         });
         return () => unsubscribe();
-    }, [projectsCollectionPath, isAuthReady]);
+    }, [publicProjectsPath, isAuthReady]);
 
     const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -52,7 +54,6 @@ const AdminPage: FC = () => {
             setMessage("An image is required for new projects.");
             return;
         }
-        // Check if the environment variables are set
         if (!CLOUDINARY_CLOUD_NAME || !CLOUDINARY_UPLOAD_PRESET) {
             setMessage("Cloudinary configuration is missing. Check your environment variables.");
             return;
@@ -62,7 +63,7 @@ const AdminPage: FC = () => {
         setMessage('');
 
         try {
-            if (!projectsCollectionPath) throw new Error("Collection path is not available.");
+            if (!publicProjectsPath) throw new Error("Collection path is not available.");
             
             let finalImageUrl = currentProject.imageUrl;
 
@@ -84,18 +85,21 @@ const AdminPage: FC = () => {
                 }
 
                 const data = await response.json();
-                finalImageUrl = data.secure_url; // Get the URL from Cloudinary
+                finalImageUrl = data.secure_url;
                 setMessage('Image uploaded! Saving project to database...');
             }
 
+            // This is the final data object to be saved
             const projectData = { ...currentProject, imageUrl: finalImageUrl };
-            const projectsCollection = collection(db, projectsCollectionPath);
+            const projectsCollection = collection(db, publicProjectsPath);
 
             if (editingId) {
-                const projectDoc = doc(db, projectsCollectionPath, editingId);
+                const projectDoc = doc(db, publicProjectsPath, editingId);
+                // Save the updated data, including the new image URL if there was one
                 await updateDoc(projectDoc, projectData);
                 setMessage("Project updated successfully!");
             } else {
+                // Save the new project data
                 await addDoc(projectsCollection, projectData);
                 setMessage("Project added successfully!");
             }
@@ -117,8 +121,8 @@ const AdminPage: FC = () => {
     const handleDelete = async (id: string) => {
         if (window.confirm("Are you sure you want to delete this project?")) {
             try {
-                if (!projectsCollectionPath) throw new Error("Collection path is not available.");
-                const projectDoc = doc(db, projectsCollectionPath, id);
+                if (!publicProjectsPath) throw new Error("Collection path is not available.");
+                const projectDoc = doc(db, publicProjectsPath, id);
                 await deleteDoc(projectDoc);
                 setMessage("Project deleted.");
             } catch (error) {
@@ -142,7 +146,7 @@ const AdminPage: FC = () => {
 
     return (
         <div className="bg-slate-100 dark:bg-slate-950 min-h-screen">
-            <div className="container mx-auto px-6 py-24">
+            <div className=" mx-auto px-6 py-16">
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">Admin Panel</h1>
                     <Link href="/home" className="text-blue-600 dark:text-blue-400 hover:underline">← Back to Portfolio</Link>

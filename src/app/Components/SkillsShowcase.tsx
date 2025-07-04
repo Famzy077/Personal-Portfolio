@@ -78,7 +78,7 @@ export const SkillsShowcase = () => {
       <div className=" lg:mx-28 mx-auto px-4">
         <AnimatedSection>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">My Tech Stack & Skills</h2>
+            <h2 className="text-3xl max-sm:text-xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">My Tech Stack & Skills</h2>
             <p className="text-md md:text-lg text-slate-500 dark:text-slate-400 mt-2">The tools and technologies I use to build modern web applications.</p>
           </div>
         </AnimatedSection>
