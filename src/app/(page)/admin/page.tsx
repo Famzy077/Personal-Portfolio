@@ -145,7 +145,7 @@ const AdminPage: FC = () => {
             <div className="container mx-auto px-6 py-24">
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">Admin Panel</h1>
-                    <Link href="/" className="text-blue-600 dark:text-blue-400 hover:underline">← Back to Portfolio</Link>
+                    <Link href="/home" className="text-blue-600 dark:text-blue-400 hover:underline">← Back to Portfolio</Link>
                 </div>
                 
                 <div className="bg-white dark:bg-slate-900 p-8 rounded-lg shadow-lg mb-12">
