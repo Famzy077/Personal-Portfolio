@@ -48,7 +48,14 @@ const toolsAndDevOps = [
 
 
 // --- 2. The Reusable Skill Card Component ---
-const SkillCard = ({ skill }) => (
+type Skill = {
+  name: string;
+  icon: React.ReactNode;
+  color: string;
+  textColor: string;
+};
+
+const SkillCard = ({ skill }: { skill: Skill }) => (
   <AnimatedSection>
     <div
       className="flex items-center gap-4 max-sm:gap-2 p-4 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
