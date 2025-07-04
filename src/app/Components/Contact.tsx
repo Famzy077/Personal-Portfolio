@@ -6,7 +6,7 @@ export const Contact = () => {
         { icon: <SiLinkedin/>, name: 'LinkedIn', url: 'http://www.linkedin.com/in/akinola-femi077', color: 'bg-sky-600', hover: 'hover:bg-sky-700' },
         { icon: <SiGithub/>, name: 'GitHub', url: 'https://github.com/Famzy077', color: 'bg-slate-800', hover: 'hover:bg-slate-900' },
         { icon: <SiX/>, name: 'Twitter', url: 'https://x.com/famzy_Tech', color: 'bg-sky-500', hover: 'hover:bg-sky-600' },
-        { icon: <SiGmail/>, name: 'Email', url: 'mailto://akinolafemi573@gmail.com', color: 'bg-red-600', hover: 'hover:bg-red-700' },
+        { icon: <SiGmail/>, name: 'Email', url: 'mailto:akinolafemi573@gmail.com', color: 'bg-red-600', hover: 'hover:bg-red-700' },
     ];
     return (
         <section id="contact" className="py-10 bg-slate-100 dark:bg-slate-950">
