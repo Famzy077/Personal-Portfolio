@@ -14,10 +14,10 @@ const SortableProjectItem: FC<{ project: Project; onEdit: () => void; onDelete: 
     <div ref={setNodeRef} style={style} {...attributes} className="bg-white dark:bg-slate-900 p-4 rounded-lg shadow-lg flex justify-between items-center touch-none">
       <div className='flex items-center gap-4'>
         <div {...listeners} className="w-6 text-center text-slate-400 cursor-grab">☰</div>
-        <Image className="rounded-lg object-cover" src={project.imageUrl} height={60} width={80} alt={project.title} />
+        <Image className="rounded-[5px] object-contain" src={project.imageUrl} height={80} width={90} alt={project.title} />
         <p className="font-bold text-slate-800 dark:text-slate-200">{project.title}</p>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         <button onClick={onEdit} className="bg-yellow-500 text-white px-3 py-1 rounded-md text-sm hover:bg-yellow-600">Edit</button>
         <button onClick={onDelete} className="bg-red-500 text-white px-3 py-1 rounded-md text-sm hover:bg-red-600">Delete</button>
       </div>
