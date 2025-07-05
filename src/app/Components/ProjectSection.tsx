@@ -1,27 +1,20 @@
+
 "use client"
 import React, { useState, useEffect } from "react";
-import { collection, onSnapshot } from "firebase/firestore";
+// Import 'query' and 'orderBy' from firestore
+import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { useFirebase } from "../contexts/FirebaseProvider";
 import { db } from "@/app/firebase";
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import { LinkIcon, GithubIcon } from "../Icon/Icons";
 import useOnScreen from "../Hooks/useOnScreen";
-
-type Project = {
-    id: string;
-    title: string;
-    category: 'Frontend' | 'Backend';
-    imageUrl: string;
-    description: string;
-    liveUrl: string;
-    githubUrl: string;
-    tags: string | string[];
-};
+import { Project } from "@/app/Data/initialData";
 
 const ProjectCard = ({ project }: { project: Project }) => {
     const [ref, isVisible] = useOnScreen({ threshold: 0.2 });
     const tagsArray = Array.isArray(project.tags) ? project.tags : project.tags.split(',').map(tag => tag.trim());
+
     return (
         <div ref={ref as React.RefObject<HTMLDivElement>} className={`bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden transition-all duration-500 ease-out transform hover:-translate-y-2 hover:shadow-xl dark:shadow-slate-900/50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <Image src={project.imageUrl} alt={project.title} width={600} height={400} className="w-full h-56 object-cover" />
@@ -45,33 +38,33 @@ const ProjectCard = ({ project }: { project: Project }) => {
 };
 
 export const ProjectSection = () => {
-    // Get the new public path from our context
-    const { publicProjectsPath} = useFirebase();
+    const { publicProjectsPath, isAuthReady } = useFirebase();
     const [projects, setProjects] = useState<Project[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedCategory, setSelectedCategory] = useState('All');
 
     useEffect(() => {
-        if (!publicProjectsPath) {
-            console.error("Public projects path is not available.");
+        if (!isAuthReady || !publicProjectsPath) return;
+
+        setLoading(true);
+        const projectsCollection = collection(db, publicProjectsPath);
+        
+        // --- THIS IS THE FIX ---
+        // Create a query that orders the projects by the 'order' field, from smallest to largest.
+        const q = query(projectsCollection, orderBy("order", "asc"));
+
+        // Use the new query 'q' in the snapshot listener
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const projectsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
+            setProjects(projectsData);
             setLoading(false);
-        return;
-        }
-    setLoading(true);
+        }, (error) => {
+            console.error("Error fetching projects:", error);
+            setLoading(false);
+        });
 
-    const projectsCollection = collection(db, publicProjectsPath);
-    const unsubscribe = onSnapshot(projectsCollection, (snapshot) => {
-        const projectsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
-        setProjects(projectsData);
-        setLoading(false);
-    }, (error) => {
-        console.error("Error fetching projects:", error);
-        setLoading(false);
-    });
-
-    return () => unsubscribe();
-}, [publicProjectsPath]);
-
+        return () => unsubscribe();
+    }, [isAuthReady, publicProjectsPath]);
 
     const categories = ['All', 'Frontend', 'Backend'];
     const filteredProjects = selectedCategory === 'All' 
