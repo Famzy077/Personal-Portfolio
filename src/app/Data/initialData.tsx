@@ -6,6 +6,7 @@ export interface Project {
     imageUrl: string;
     liveUrl: string;
     githubUrl: string;
+    order: number;
     tags: string | string[]; // Can be a comma-separated string or an array
 }
 
@@ -18,6 +19,7 @@ export const initialProjectsData: Project[] = [
         description: "Built a full-featured E-commerce website using Next.js, Tailwind, Node.js, and Prisma with PostgreSQL for the database.", 
         liveUrl: "#", 
         githubUrl: "#", 
+        order: 0,
         tags: "Next.js, Node.js, Prisma SQL" 
     },
     { 
@@ -28,6 +30,7 @@ export const initialProjectsData: Project[] = [
         description: "A full-featured restaurant dashboard with dynamic order creation, menu settings, inventory management, and admin settings.", 
         liveUrl: "#", 
         githubUrl: "#", 
+        order: 0,
         tags: "Tailwind, Next.js, Node.js" 
     },
     { 
@@ -37,7 +40,8 @@ export const initialProjectsData: Project[] = [
         imageUrl: "https://placehold.co/600x400/1e293b/ffffff?text=HealthCare", 
         description: "A healthcare platform with a focus on delivering a seamless user experience. Integrated secure backend APIs using Node.js.", 
         liveUrl: "#", 
-        githubUrl: "#", 
+        githubUrl: "#",
+        order: 0,
         tags: "React.js, Node.js, Tailwind" 
     },
     { 
@@ -48,6 +52,7 @@ export const initialProjectsData: Project[] = [
         description: "Developed a fully responsive e-commerce website using pure HTML, CSS, and JavaScript for a user-friendly shopping experience.", 
         liveUrl: "#", 
         githubUrl: "#", 
+        order: 0,
         tags: "HTML, CSS, JavaScript" 
     }
 ];

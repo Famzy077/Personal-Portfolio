@@ -55,7 +55,7 @@ const ProjectList: FC<ProjectListProps> = ({ projects, onReorder, onEdit, onDele
   }
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={projectIds} strategy={verticalListSortingStrategy}>
           <div className="space-y-4">
