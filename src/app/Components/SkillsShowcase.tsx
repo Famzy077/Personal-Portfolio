@@ -4,7 +4,8 @@ import React from 'react';
 import {
   SiNextdotjs, SiReact, SiTypescript, SiNodedotjs, SiPython, SiJavascript,
   SiPostgresql, SiMongodb, SiPrisma, SiRedis, SiGit, SiGithub, SiVercel,
-  SiTailwindcss, SiSass, SiHtml5, SiCss3, SiExpress, SiJsonwebtokens
+  SiTailwindcss, SiSass, SiHtml5, SiCss3, SiExpress, SiJsonwebtokens, SiWeb3Dotjs,
+  SiFastapi, SiDocker, SiExpo,
 } from 'react-icons/si';
 import { VscTerminalPowershell, VscTerminalBash } from "react-icons/vsc";
 import { SiCloudinary, SiFirebase, SiRender } from 'react-icons/si';
@@ -16,8 +17,11 @@ const languagesAndFrameworks = [
   { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E', textColor: 'text-black' },
   { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6', textColor: 'text-white' },
   { name: 'Python', icon: <SiPython />, color: '#3776AB', textColor: 'text-white' },
+  { name: 'FastApi', icon: <SiFastapi />, color: '#00ACEA', textColor: 'text-white' },
+  { name: 'Web3.js', icon: <SiWeb3Dotjs />, color: '#fff', textColor: 'text-black' },
   { name: 'React', icon: <SiReact />, color: '#61DAFB', textColor: 'text-black' },
   { name: 'Next.js', icon: <SiNextdotjs />, color: '#000000', textColor: 'text-white' },
+  { name: 'React-Native', icon: <SiExpo />, color: '#fff', textColor: 'text-black' },
   { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933', textColor: 'text-white' },
   { name: 'Express.js', icon: <SiExpress />, color: '#000000', textColor: 'text-white' },
   { name: 'HTML5', icon: <SiHtml5 />, color: '#E34F26', textColor: 'text-white' },
@@ -38,6 +42,7 @@ const databasesAndStorage = [
 const toolsAndDevOps = [
   { name: 'Git', icon: <SiGit />, color: '#F05032', textColor: 'text-white' },
   { name: 'GitHub', icon: <SiGithub />, color: '#181717', textColor: 'text-white' },
+  { name: 'Docker', icon: <SiDocker />, color: '#fff', textColor: 'text-blue-600' },
   { name: 'Vercel', icon: <SiVercel />, color: '#000000', textColor: 'text-white' },
   { name: 'JWT', icon: <SiJsonwebtokens />, color: '#000000', textColor: 'text-white' },
   { name: 'CLI', icon: <VscTerminalPowershell />, color: '#FFFFFF', textColor: 'text-black' },

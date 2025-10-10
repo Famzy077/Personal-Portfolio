@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, createContext, useContext, ReactNode } from 'react';
 import { onAuthStateChanged, signInAnonymously, signInWithCustomToken, User, Auth } from "firebase/auth";
-import { auth } from '@/app/firebase'; // Using path alias
+import { auth } from '@/app/firebase';
 
 declare global {
     interface Window {
