@@ -3,7 +3,6 @@ import AnimatedSection from "./AnimatedSection";
 import { useState } from "react";
 import Image from "next/image";
 import { EyeOffIcon, Eye } from "lucide-react";
-import AboutImage from '/public/aboutImage.png'
 
 
 export const About = () => {

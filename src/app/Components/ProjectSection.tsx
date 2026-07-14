@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from "react"; import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import React, { useState, useEffect } from "react";
 import "react-loading-skeleton/dist/skeleton.css";
 import ProjectCardSkeleton from "./ProjectCardSkeleton";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";

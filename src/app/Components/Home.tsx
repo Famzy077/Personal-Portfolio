@@ -2,7 +2,6 @@
 import React from 'react'
 // import PopupNav from './NavBar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ProfileImage from './Images/profile.png';
 import Secondprofile from './Images/second.jpg'
 import Image from 'next/image';
 import NextJsimg from './Images/NextJs.png'

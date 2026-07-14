@@ -114,9 +114,9 @@ const TimelineItem: FC<TimeLineItem> = ({ title, subtitle, meta, current, points
                 <span className="mx-2 text-slate-300 dark:text-slate-600">/</span>
                 <span className="font-mono text-xs">{meta}</span>
             </p>
-            {points?.length > 0 && (
+            {(points?.length ?? 0) > 0 && (
                 <ul className="space-y-2">
-                    {points.map((point, i) => (
+                    {(points ?? []).map((point, i) => (
                         <li
                             key={i}
                             className="pl-3 border-l-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 leading-relaxed"
