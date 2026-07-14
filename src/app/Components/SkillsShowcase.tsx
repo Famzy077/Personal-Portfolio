@@ -67,16 +67,15 @@ const SkillCard = ({ skill }: { skill: Skill }) => (
       style={{ backgroundColor: skill.color }}
     >
       <div className={`text-3xl max-sm:text-sm ${skill.textColor}`}>
-      {skill.icon}
+        {skill.icon}
       </div>
       <h3 className={`text-md max-sm:text-sm font-semibold ${skill.textColor}`}>
-      {skill.name}
-        </h3>
+        {skill.name}
+      </h3>
     </div>
   </AnimatedSection>
 );
 
-// --- 3. The Main Skills Showcase Component ---
 export const SkillsShowcase = () => {
   return (
     <section className="mb-6 md:py-5 bg-gray-50 dark:bg-slate-900">
@@ -87,35 +86,35 @@ export const SkillsShowcase = () => {
             <p className="text-md md:text-lg text-slate-500 dark:text-slate-400 mt-2">The tools and technologies I use to build modern web applications.</p>
           </div>
         </AnimatedSection>
-        
+
         {/* Languages & Frameworks Section */}
-        <div className="mb-12">
-            <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border-l-4 border-blue-500 pl-4">Languages & Frameworks</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                {languagesAndFrameworks.map((skill) => (
-                    <SkillCard key={skill.name} skill={skill} />
-                ))}
-            </div>
+        <div className="mb-12 flex flex-col items-center">
+          <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border- l-4 border-blue-500 pl-4">Languages & Frameworks</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 w-full sm:w-[80%] 6xl w-a uto md:grid-cols-4 lg:grid-cols-4 gap-4">
+            {languagesAndFrameworks.map((skill) => (
+              <SkillCard key={skill.name} skill={skill} />
+            ))}
+          </div>
         </div>
 
         {/* Databases & Storage Section */}
-        <div className="mb-12">
-            <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border-l-4 border-blue-500 pl-4">Databases & Storage</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                {databasesAndStorage.map((skill) => (
-                    <SkillCard key={skill.name} skill={skill} />
-                ))}
-            </div>
+        <div className="mb-12 flex flex-col items-center">
+          <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border- l -4 border-blue-500 pl-4">Databases & Storage</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 w-full sm:w-[80%] md:grid-cols-4 lg:grid-cols-4 gap-4">
+            {databasesAndStorage.map((skill) => (
+              <SkillCard key={skill.name} skill={skill} />
+            ))}
+          </div>
         </div>
 
         {/* Tools & DevOps Section */}
-        <div>
-            <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border-l-4 border-blue-500 pl-4">Tools & DevOps</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                {toolsAndDevOps.map((skill) => (
-                    <SkillCard key={skill.name} skill={skill} />
-                ))}
-            </div>
+        <div className='flex flex-col items-center'>
+          <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 bord er-l-4 border-blue-500 pl-4">Tools & DevOps</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 w-full sm:w-[80%] md:grid-cols-4 lg:grid-cols-4 gap-4">
+            {toolsAndDevOps.map((skill) => (
+              <SkillCard key={skill.name} skill={skill} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

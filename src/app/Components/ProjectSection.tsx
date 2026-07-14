@@ -1,6 +1,6 @@
 "use client"
-import React, { useState, useEffect } from "react";
-import 'react-loading-skeleton/dist/skeleton.css';
+import React, { useState, useEffect } from "react"; import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import ProjectCardSkeleton from "./ProjectCardSkeleton";
 import { collection, onSnapshot, query, orderBy } from "firebase/firestore";
 import { useFirebase } from "../contexts/FirebaseProvider";
@@ -16,7 +16,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
     const tagsArray = Array.isArray(project.tags) ? project.tags : project.tags.split(',').map(tag => tag.trim());
 
     return (
-        <div ref={ref as React.RefObject<HTMLDivElement>} className={`bg-white dark:bg-slate-800 rounded-xl shadow-md overflow-hidden transition-all duration-500 ease-out transform hover:-translate-y-2 hover:shadow-xl dark:shadow-slate-900/50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div ref={ref as React.RefObject<HTMLDivElement>} className={`bg-white dark:bg-slate-900 rounded-xl shadow-md overflow-hidden transition-all duration-500 ease-out transform hover:-translate-y-2 hover:shadow-xl dark:shadow-slate-900/50 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <Image src={project.imageUrl} alt={project.title} width={600} height={400} className="w-full h-56 object-cover" />
             <div className="p-6 lg:h-[17rem]">
                 <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{project.title}</h3>
@@ -55,7 +55,7 @@ export const ProjectSection = () => {
 
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const projectsData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Project));
-            
+
             setProjects(projectsData);
             setDataFetched(true);
         }, (error) => {
@@ -70,7 +70,7 @@ export const ProjectSection = () => {
         if (dataFetched) {
             const timer = setTimeout(() => {
                 setLoading(false);
-            }, 4000);
+            }, 3000);
 
             return () => clearTimeout(timer);
         }

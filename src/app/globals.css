@@ -2,26 +2,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
   scrollbar-width: thin;
-  scrollbar-color:  rgb(6, 6, 102) #f1f1f1;
-  
+  scrollbar-color: rgb(6, 6, 102) #f1f1f1;
+
 }
+
 html {
   font-family: Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
   background-color: black;
 }
-body{
+
+body {
   margin: 0;
 }
 
+:root {
+  --skeleton-base: #e2e8f0;
+  --skeleton-highlight: #f1f5f9;
+}
 
-.section2{
+.dark {
+  --skeleton-base: #1e293b;
+  --skeleton-highlight: #334155;
+}
+
+.section2 {
   font-family: "Rubik Vinyl", serif;
   font-weight: 400;
   font-style: normal;
 }
+
 /* Small screens: 300px - 500px */
 @media only screen and (min-width: 300px) and (max-width: 500px) {
   header {
@@ -39,6 +52,7 @@ body{
     margin-bottom: 4rem !important;
   }
 }
+
 @media only screen and (min-width: 781px) and (max-width: 1080px) {
   header {
     padding: 0 !important;

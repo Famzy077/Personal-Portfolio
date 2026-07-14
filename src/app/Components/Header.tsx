@@ -1,12 +1,12 @@
 "use client"
 import { useState, useEffect } from 'react';
-import {XIcon} from '../Icon/Icons'
+import { XIcon } from '../Icon/Icons'
 import { MenuSquare } from 'lucide-react';
 import ThemeToggle from '../Theme/ThemeProvider';
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    
+
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
         window.addEventListener('scroll', handleScroll);
@@ -16,12 +16,12 @@ export const Header = () => {
     const navLinks = ["About", "Projects", "Experience", "Contact"];
 
     return (
-        <>  
+        <>
             <header
                 className={`fixed top-0 left-0 right-0 z-50 rounded-lg transition-all duration-300
                     ${isScrolled
-                    ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-md max-sm:border'
-                    : 'bg-transparent'}
+                        ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-md max-sm:border'
+                        : 'bg-transparent'}
                 `}
             >
 
@@ -35,16 +35,18 @@ export const Header = () => {
                             <ThemeToggle />
                             <a href="#contact" className="bg-blue-600 md:flex hidden  text-white font-semibold px-5 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-sm hover:shadow-md">Hire Me</a>
                         </div>
-                        <button onClick={() => setIsOpen(true)} className="md:hidden text-xl text-slate-800 dark:text-slate-200"><MenuSquare size={33}/></button>
+                        <button onClick={() => setIsOpen(true)} className="md:hidden text-xl text-slate-800 dark:text-slate-200"><MenuSquare size={33} /></button>
                     </div>
                 </nav>
             </header>
-            
-            <div className={`fixed inset-0 bg-white dark:bg-slate-900 z-50 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
+
+            <div className={`fixed inset-0 bg-white dark:bg-slate-900/90 z-50 transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out md:hidden`}>
                 <div className="flex justify-end p-6"><button onClick={() => setIsOpen(false)} className="text-slate-800 dark:text-slate-200"><XIcon /></button></div>
-                <div className="flex flex-col items-center justify-center h-full -mt-16 space-y-8">
+                <div className="flex flex-col p-10 justify-center h-full -mt-16 space-y-8">
+                    {/* <div> */}
                     {navLinks.map(link => <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setIsOpen(false)} className="text-3xl text-slate-700 dark:text-slate-300 font-medium hover:text-blue-600 dark:hover:text-blue-400">{link}</a>)}
-                     <a href="#contact" onClick={() => setIsOpen(false)} className="mt-8 bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-xl">Hire Me</a>
+                    <a href="#contact" onClick={() => setIsOpen(false)} className="mt-8 bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-xl">Hire Me</a>
+                    {/* </div> */}
                 </div>
             </div>
         </>
