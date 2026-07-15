@@ -4,7 +4,7 @@ import React from 'react';
 import {
   SiNextdotjs, SiReact, SiTypescript, SiNodedotjs, SiPython, SiJavascript,
   SiPostgresql, SiMongodb, SiPrisma, SiRedis, SiGit, SiGithub, SiVercel,
-  SiTailwindcss, SiSass, SiHtml5, SiCss3, SiExpress, SiJsonwebtokens, SiWeb3Dotjs,
+  SiTailwindcss, SiSass, SiHtml5, SiCss, SiExpress, SiJsonwebtokens, SiWeb3Dotjs,
   SiFastapi, SiDocker, SiExpo,
 } from 'react-icons/si';
 import { VscTerminalPowershell, VscTerminalBash } from "react-icons/vsc";
@@ -12,7 +12,7 @@ import { SiCloudinary, SiFirebase, SiRender } from 'react-icons/si';
 import { Clock } from 'lucide-react';
 
 
-// --- 1. The Data for All Skills (Now Categorized) ---
+// The Data for All Skills
 const languagesAndFrameworks = [
   { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E', textColor: 'text-black' },
   { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6', textColor: 'text-white' },
@@ -25,7 +25,7 @@ const languagesAndFrameworks = [
   { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933', textColor: 'text-white' },
   { name: 'Express.js', icon: <SiExpress />, color: '#000000', textColor: 'text-white' },
   { name: 'HTML5', icon: <SiHtml5 />, color: '#E34F26', textColor: 'text-white' },
-  { name: 'CSS3', icon: <SiCss3 />, color: '#1572B6', textColor: 'text-white' },
+  { name: 'CSS3', icon: <SiCss />, color: '#1572B6', textColor: 'text-white' },
   { name: 'SASS/SCSS', icon: <SiSass />, color: '#CC6699', textColor: 'text-white' },
   { name: 'Tailwind', icon: <SiTailwindcss />, color: '#06B6D4', textColor: 'text-white' },
 ];
