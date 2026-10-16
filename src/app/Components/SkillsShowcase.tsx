@@ -1,120 +1,211 @@
-'use client';
-import AnimatedSection from './AnimatedSection';
-import React from 'react';
+"use client";
+import AnimatedSection from "./AnimatedSection";
+import React from "react";
 import {
-  SiNextdotjs, SiReact, SiTypescript, SiNodedotjs, SiPython, SiJavascript,
-  SiPostgresql, SiMongodb, SiPrisma, SiRedis, SiGit, SiGithub, SiVercel,
-  SiTailwindcss, SiSass, SiHtml5, SiCss, SiExpress, SiJsonwebtokens, SiWeb3Dotjs,
-  SiFastapi, SiDocker, SiExpo,
-} from 'react-icons/si';
-import { VscTerminalPowershell, VscTerminalBash } from "react-icons/vsc";
-import { SiCloudinary, SiFirebase, SiRender } from 'react-icons/si';
-import { Clock } from 'lucide-react';
+  SiNextdotjs,
+  SiReact,
+  SiTypescript,
+  SiNodedotjs,
+  SiPython,
+  SiJavascript,
+  SiPostgresql,
+  SiMongodb,
+  SiPrisma,
+  SiRedis,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiTailwindcss,
+  SiSass,
+  SiHtml5,
+  SiExpress,
+  SiJsonwebtokens,
+  SiWeb3Dotjs,
+  SiFastapi,
+  SiDocker,
+  SiExpo,
+  SiCloudinary,
+  SiFirebase,
+  SiRender,
+} from "react-icons/si";
+import { VscTerminalBash } from "react-icons/vsc";
+import { Clock, Layers, Server, Database, Wrench } from "lucide-react";
 
-
-// The Data for All Skills
-const languagesAndFrameworks = [
-  { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E', textColor: 'text-black' },
-  { name: 'TypeScript', icon: <SiTypescript />, color: '#3178C6', textColor: 'text-white' },
-  { name: 'Python', icon: <SiPython />, color: '#3776AB', textColor: 'text-white' },
-  { name: 'FastApi', icon: <SiFastapi />, color: '#00ACEA', textColor: 'text-white' },
-  { name: 'Web3.js', icon: <SiWeb3Dotjs />, color: '#fff', textColor: 'text-black' },
-  { name: 'React', icon: <SiReact />, color: '#61DAFB', textColor: 'text-black' },
-  { name: 'Next.js', icon: <SiNextdotjs />, color: '#000000', textColor: 'text-white' },
-  { name: 'React-Native', icon: <SiExpo />, color: '#fff', textColor: 'text-black' },
-  { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933', textColor: 'text-white' },
-  { name: 'Express.js', icon: <SiExpress />, color: '#000000', textColor: 'text-white' },
-  { name: 'HTML5', icon: <SiHtml5 />, color: '#E34F26', textColor: 'text-white' },
-  { name: 'CSS3', icon: <SiCss />, color: '#1572B6', textColor: 'text-white' },
-  { name: 'SASS/SCSS', icon: <SiSass />, color: '#CC6699', textColor: 'text-white' },
-  { name: 'Tailwind', icon: <SiTailwindcss />, color: '#06B6D4', textColor: 'text-white' },
-];
-
-const databasesAndStorage = [
-  { name: 'PostgreSQL', icon: <SiPostgresql />, color: '#4169E1', textColor: 'text-white' },
-  { name: 'MongoDB', icon: <SiMongodb />, color: '#47A248', textColor: 'text-white' },
-  { name: 'PrismaORM', icon: <SiPrisma />, color: '#2D3748', textColor: 'text-white' },
-  { name: 'Redis', icon: <SiRedis />, color: '#DC382D', textColor: 'text-white' },
-  { name: 'Cloudinary', icon: <SiCloudinary />, color: '#3448C5', textColor: 'text-white' },
-  { name: 'Firebase', icon: <SiFirebase />, color: '#2C382D', textColor: 'text-white' },
-];
-
-const toolsAndDevOps = [
-  { name: 'Git', icon: <SiGit />, color: '#F05032', textColor: 'text-white' },
-  { name: 'GitHub', icon: <SiGithub />, color: '#181717', textColor: 'text-white' },
-  { name: 'Docker', icon: <SiDocker />, color: '#fff', textColor: 'text-blue-600' },
-  { name: 'Vercel', icon: <SiVercel />, color: '#000000', textColor: 'text-white' },
-  { name: 'JWT', icon: <SiJsonwebtokens />, color: '#000000', textColor: 'text-white' },
-  { name: 'CLI', icon: <VscTerminalPowershell />, color: '#FFFFFF', textColor: 'text-black' },
-  { name: 'BASH', icon: <VscTerminalBash />, color: '#00FF00', textColor: 'text-white' },
-  { name: 'Render', icon: <SiRender />, color: '#3A3AFA', textColor: 'text-white' },
-  { name: 'Cron-Job', icon: <Clock />, color: '#F05032', textColor: 'text-white' },
-];
-
-
-// --- 2. The Reusable Skill Card Component ---
 type Skill = {
   name: string;
   icon: React.ReactNode;
-  color: string;
-  textColor: string;
+  brandColor: string;
+  level?: string;
 };
 
-const SkillCard = ({ skill }: { skill: Skill }) => (
-  <AnimatedSection>
+const frontendSkills: Skill[] = [
+  { name: "TypeScript", icon: <SiTypescript />, brandColor: "#3178C6" },
+  { name: "JavaScript (ES6+)", icon: <SiJavascript />, brandColor: "#F7DF1E" },
+  { name: "React", icon: <SiReact />, brandColor: "#61DAFB" },
+  { name: "Next.js", icon: <SiNextdotjs />, brandColor: "#ffffff" },
+  { name: "Tailwind CSS", icon: <SiTailwindcss />, brandColor: "#06B6D4" },
+  { name: "React Native / Expo", icon: <SiExpo />, brandColor: "#ffffff" },
+  { name: "HTML5 / Semantic UI", icon: <SiHtml5 />, brandColor: "#E34F26" },
+  { name: "CSS3 / SCSS", icon: <SiSass />, brandColor: "#CC6699" },
+];
+
+const backendSkills: Skill[] = [
+  { name: "Node.js", icon: <SiNodedotjs />, brandColor: "#339933" },
+  { name: "Express.js", icon: <SiExpress />, brandColor: "#ffffff" },
+  { name: "Python", icon: <SiPython />, brandColor: "#3776AB" },
+  { name: "FastAPI", icon: <SiFastapi />, brandColor: "#009688" },
+  { name: "RESTful APIs", icon: <Server size={22} />, brandColor: "#3b82f6" },
+  { name: "JWT Auth & RBAC", icon: <SiJsonwebtokens />, brandColor: "#ffffff" },
+  { name: "Web3.js Integrations", icon: <SiWeb3Dotjs />, brandColor: "#F16822" },
+];
+
+const databaseSkills: Skill[] = [
+  { name: "PostgreSQL", icon: <SiPostgresql />, brandColor: "#4169E1" },
+  { name: "Prisma ORM", icon: <SiPrisma />, brandColor: "#2D3748" },
+  { name: "MongoDB", icon: <SiMongodb />, brandColor: "#47A248" },
+  { name: "Redis", icon: <SiRedis />, brandColor: "#DC382D" },
+  { name: "Firebase Firestore", icon: <SiFirebase />, brandColor: "#FFCA28" },
+  { name: "Cloudinary CDN", icon: <SiCloudinary />, brandColor: "#3448C5" },
+];
+
+const devopsSkills: Skill[] = [
+  { name: "Docker", icon: <SiDocker />, brandColor: "#2496ED" },
+  { name: "Git", icon: <SiGit />, brandColor: "#F05032" },
+  { name: "GitHub Workflows", icon: <SiGithub />, brandColor: "#ffffff" },
+  { name: "Vercel Deployments", icon: <SiVercel />, brandColor: "#ffffff" },
+  { name: "Render Cloud", icon: <SiRender />, brandColor: "#46E3B7" },
+  { name: "Linux / Bash CLI", icon: <VscTerminalBash />, brandColor: "#4EAA25" },
+  { name: "Scheduled Jobs", icon: <Clock size={20} />, brandColor: "#F59E0B" },
+];
+
+const SkillBadge = ({ skill }: { skill: Skill }) => (
+  <div className="group flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:shadow-md transition-all duration-200">
     <div
-      className="flex items-center gap-4 max-sm:gap-2 p-4 rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
-      style={{ backgroundColor: skill.color }}
+      className="flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 text-xl transition-transform group-hover:scale-110"
+      style={{ color: skill.brandColor === "#ffffff" ? undefined : skill.brandColor }}
     >
-      <div className={`text-3xl max-sm:text-sm ${skill.textColor}`}>
-        {skill.icon}
-      </div>
-      <h3 className={`text-md max-sm:text-sm font-semibold ${skill.textColor}`}>
-        {skill.name}
-      </h3>
+      <span className="text-slate-800 dark:text-slate-100">{skill.icon}</span>
     </div>
-  </AnimatedSection>
+    <span className="text-sm font-medium text-slate-800 dark:text-slate-200 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+      {skill.name}
+    </span>
+  </div>
 );
 
 export const SkillsShowcase = () => {
   return (
-    <section className="mb-6 md:py-5 bg-gray-50 dark:bg-slate-900">
-      <div className=" lg:mx-28 mx-auto px-4">
+    <section id="skills" className="py-20 bg-slate-100/60 dark:bg-[#0b0f19]">
+      <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
-          <div className="text-center mb-12">
-            <h2 className="text-3xl max-sm:text-xl md:text-4xl font-bold text-slate-800 dark:text-slate-100">My Tech Stack & Skills</h2>
-            <p className="text-md md:text-lg text-slate-500 dark:text-slate-400 mt-2">The tools and technologies I use to build modern web applications.</p>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+              Technical Stack & Competencies
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
+              Technologies I Build Production Software With
+            </h2>
+            <p className="text-base text-slate-600 dark:text-slate-400">
+              Comprehensive full-stack engineering toolkit honed across real-time applications, commercial platforms, and scalable web architectures.
+            </p>
           </div>
         </AnimatedSection>
 
-        {/* Languages & Frameworks Section */}
-        <div className="mb-12 flex flex-col items-center">
-          <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border- l-4 border-blue-500 pl-4">Languages & Frameworks</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 w-full sm:w-[80%] 6xl w-a uto md:grid-cols-4 lg:grid-cols-4 gap-4">
-            {languagesAndFrameworks.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
-        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Frontend Section */}
+          <AnimatedSection>
+            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
+              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
+                  <Layers size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                    Frontend Architecture
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Component design, reactive state, responsive UX
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                {frontendSkills.map((skill) => (
+                  <SkillBadge key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
 
-        {/* Databases & Storage Section */}
-        <div className="mb-12 flex flex-col items-center">
-          <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 border- l -4 border-blue-500 pl-4">Databases & Storage</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 w-full sm:w-[80%] md:grid-cols-4 lg:grid-cols-4 gap-4">
-            {databasesAndStorage.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
-        </div>
+          {/* Backend Section */}
+          <AnimatedSection>
+            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
+              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                  <Server size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                    Backend & API Systems
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    REST APIs, real-time messaging, auth & security
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                {backendSkills.map((skill) => (
+                  <SkillBadge key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
 
-        {/* Tools & DevOps Section */}
-        <div className='flex flex-col items-center'>
-          <h3 className="text-2xl max-sm:text-xl font-bold text-slate-700 dark:text-slate-200 mb-6 bord er-l-4 border-blue-500 pl-4">Tools & DevOps</h3>
-          <div className="grid grid-cols-2 sm:grid-cols-3 w-full sm:w-[80%] md:grid-cols-4 lg:grid-cols-4 gap-4">
-            {toolsAndDevOps.map((skill) => (
-              <SkillCard key={skill.name} skill={skill} />
-            ))}
-          </div>
+          {/* Database Section */}
+          <AnimatedSection>
+            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
+              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+                  <Database size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                    Data Persistence & Storage
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Relational SQL, document databases, caching & ORMs
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                {databaseSkills.map((skill) => (
+                  <SkillBadge key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* DevOps & Tools Section */}
+          <AnimatedSection>
+            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
+              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                <div className="p-2 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
+                  <Wrench size={20} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                    DevOps & Workflow Tooling
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Containerization, CI/CD, Git workflows & environments
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                {devopsSkills.map((skill) => (
+                  <SkillBadge key={skill.name} skill={skill} />
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

@@ -1,74 +1,84 @@
-// components/CustomCursor.tsx
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 
 const CustomCursor: React.FC = () => {
-  // Initialize the cursor's state
-  const [cursor, setCursor] = useState({
-    x: -100,
-    y: -100,
-    scale: 1,
-    background: 'rgba(0, 0, 0, 0.7)',
-  });
+  const [pos, setPos] = useState({ x: -100, y: -100 });
+  const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const [isTouch, setIsTouch] = useState(true);
 
-  // Update the cursor's position on mouse move
   useEffect(() => {
-    const moveCursor = (e: MouseEvent) => {
-      setCursor((prev) => ({
-        ...prev,
-        x: e.clientX,
-        y: e.clientY,
-      }));
+    // Check if the device is a touch screen (mobile/tablet)
+    if (typeof window !== "undefined") {
+      const touchDevice = window.matchMedia("(pointer: coarse)").matches;
+      setIsTouch(touchDevice);
+      if (touchDevice) return;
+    }
+
+    const onMouseMove = (e: MouseEvent) => {
+      setPos({ x: e.clientX, y: e.clientY });
+      if (!isVisible) setIsVisible(true);
     };
 
-    window.addEventListener('mousemove', moveCursor);
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-    };
-  }, []);
+    const onMouseLeave = () => setIsVisible(false);
+    const onMouseEnter = () => setIsVisible(true);
 
-  // OPTIONAL: If you want to change the cursor style on hovering over certain elements
-  // you can add event delegation here or attach listeners to specific elements.
-  // For example, to change the cursor when hovering over all <a> tags:
-  useEffect(() => {
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName.toLowerCase() === 'a') {
-        setCursor((prev) => ({ ...prev, scale: 1.5, background: 'red' }));
+    const onMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("a, button, input, textarea, select, [role='button']")) {
+        setIsHovered(true);
       }
     };
 
-    const handleMouseOut = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName.toLowerCase() === 'a') {
-        setCursor((prev) => ({ ...prev, scale: 1, background: 'rgba(0, 0, 0, 0.7)' }));
+    const onMouseOut = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest("a, button, input, textarea, select, [role='button']")) {
+        setIsHovered(false);
       }
     };
 
-    document.addEventListener('mouseover', handleMouseOver);
-    document.addEventListener('mouseout', handleMouseOut);
+    window.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+    document.addEventListener("mouseenter", onMouseEnter);
+    document.addEventListener("mouseover", onMouseOver);
+    document.addEventListener("mouseout", onMouseOut);
 
     return () => {
-      document.removeEventListener('mouseover', handleMouseOver);
-      document.removeEventListener('mouseout', handleMouseOut);
+      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("mouseenter", onMouseEnter);
+      document.removeEventListener("mouseover", onMouseOver);
+      document.removeEventListener("mouseout", onMouseOut);
     };
-  }, []);
+  }, [isVisible]);
+
+  if (isTouch || !isVisible) return null;
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        left: cursor.x,
-        top: cursor.y,
-        width: '20px',
-        height: '20px',
-        borderRadius: '50%',
-        background: cursor.background,
-        pointerEvents: 'none',
-        transform: `translate(-50%, -50%) scale(${cursor.scale})`,
-        transition: 'transform 0.1s ease, background-color 0.3s ease',
-        zIndex: 9999,
-      }}
-    />
+    <>
+      {/* Central crisp dot */}
+      <div
+        className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 rounded-full transition-transform duration-75 ease-out"
+        style={{
+          left: `${pos.x}px`,
+          top: `${pos.y}px`,
+          width: isHovered ? "8px" : "6px",
+          height: isHovered ? "8px" : "6px",
+          backgroundColor: "#3b82f6",
+        }}
+      />
+      {/* Trailing subtle ring */}
+      <div
+        className="pointer-events-none fixed z-[9998] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-500/40 dark:border-blue-400/40 transition-all duration-200 ease-out"
+        style={{
+          left: `${pos.x}px`,
+          top: `${pos.y}px`,
+          width: isHovered ? "38px" : "26px",
+          height: isHovered ? "38px" : "26px",
+          backgroundColor: isHovered ? "rgba(59, 130, 246, 0.08)" : "transparent",
+        }}
+      />
+    </>
   );
 };
 

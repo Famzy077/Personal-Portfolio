@@ -1,30 +1,148 @@
-"use client"
+"use client";
+import React, { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
-import { SiGithub, SiGmail, SiX } from "react-icons/si";
+import { SiGithub, SiX } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
+import { Mail, Copy, Check, ArrowUpRight } from "lucide-react";
+
 export const Contact = () => {
-    const socialLinks = [
-        { icon: <FaLinkedin />, name: 'LinkedIn', url: 'http://www.linkedin.com/in/akinola-femi077', color: 'bg-sky-600', hover: 'hover:bg-sky-700' },
-        { icon: <SiGithub />, name: 'GitHub', url: 'https://github.com/Famzy077', color: 'bg-slate-800', hover: 'hover:bg-slate-900' },
-        { icon: <SiX />, name: 'Twitter', url: 'https://x.com/famzy_Tech', color: 'bg-sky-500', hover: 'hover:bg-sky-600' },
-        { icon: <SiGmail />, name: 'Email', url: 'mailto:akinolafemi573@gmail.com', color: 'bg-red-600', hover: 'hover:bg-red-700' },
-    ];
-    return (
-        <section id="contact" className="py-10 bg-slate-100 dark:bg-slate-950">
-            <div className="containe mx-auto px-6 text-center">
-                <AnimatedSection>
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-slate-100 mb-4">Get In Touch</h2>
-                    <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto mb-8">I&lsquo;m currently open to new opportunities and collaborations. Whether you have a question or just want to say hi, feel free to reach out. Let&lsquo;s build something amazing together!</p>
-                    <div className="flex justify-center items-center flex-wrap gap-4">
-                        {socialLinks.map(link => <a key={link.name} href={link.url} className={`text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md ${link.color} ${link.hover}`}>
-                            <div className="flex gap-4 items-center">
-                                {link.icon} {link.name}
-                            </div>
-                        </a>
-                        )}
-                    </div>
-                </AnimatedSection>
+  const [copied, setCopied] = useState(false);
+  const emailAddress = "akinolafemi573@gmail.com";
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(emailAddress);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      handle: "akinola-femi077",
+      url: "http://www.linkedin.com/in/akinola-femi077",
+      icon: <FaLinkedin size={18} className="text-[#0A66C2]" />,
+      desc: "Connect for opportunities",
+    },
+    {
+      name: "GitHub",
+      handle: "Famzy077",
+      url: "https://github.com/Famzy077",
+      icon: <SiGithub size={18} className="text-slate-900 dark:text-white" />,
+      desc: "Code repositories & contributions",
+    },
+    {
+      name: "X (Twitter)",
+      handle: "@famzy_Tech",
+      url: "https://x.com/famzy_Tech",
+      icon: <SiX size={17} className="text-slate-900 dark:text-white" />,
+      desc: "Tech insights & engineering updates",
+    },
+  ];
+
+  return (
+    <section id="contact" className="py-24 bg-slate-50 dark:bg-[#0b0f19]">
+      <div className="max-w-4xl mx-auto px-6">
+        <AnimatedSection>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+              Let&apos;s Connect
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
+              Get In Touch
+            </h2>
+            <p className="text-base text-slate-600 dark:text-slate-400">
+              I am actively open to mid-level Full-Stack Software Engineer roles, high-impact contract opportunities, and international engineering teams.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          {/* Main Email Hero Card */}
+          <div className="p-8 sm:p-10 rounded-3xl bg-white dark:bg-[#0f172a] border border-slate-200/90 dark:border-slate-800 shadow-xl mb-8 text-center relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-blue-500/10 dark:bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 dark:bg-blue-950/80 text-blue-600 dark:text-blue-400 mb-6 shadow-sm">
+              <Mail size={26} />
             </div>
-        </section>
-    );
+
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">
+              Start a Conversation
+            </h3>
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto mb-6">
+              Drop an email to discuss engineering roles, project architectures, or collaboration opportunities.
+            </p>
+
+            {/* Email display and actions */}
+            <div className="inline-flex flex-wrap items-center justify-center gap-3 p-2 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80">
+              <span className="px-4 py-1.5 font-mono text-sm text-slate-800 dark:text-slate-200 select-all">
+                {emailAddress}
+              </span>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleCopyEmail}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white dark:bg-slate-900 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 shadow-sm transition-all"
+                  aria-label="Copy email address"
+                >
+                  {copied ? (
+                    <>
+                      <Check size={14} className="text-emerald-500" />
+                      <span className="text-emerald-600 dark:text-emerald-400">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <Copy size={14} />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
+
+                <a
+                  href={`mailto:${emailAddress}`}
+                  className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-sm transition-all"
+                >
+                  <span>Send Email</span>
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Social Profiles Grid */}
+          <div className="grid sm:grid-cols-3 gap-4">
+            {socialLinks.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group p-5 rounded-2xl bg-white dark:bg-[#0f172a] border border-slate-200/90 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                    {social.icon}
+                  </div>
+                  <ArrowUpRight
+                    size={16}
+                    className="text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+                  />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-slate-900 dark:text-white mb-0.5">
+                    {social.name}
+                  </h4>
+                  <p className="text-xs font-mono text-blue-600 dark:text-blue-400 mb-1">
+                    {social.handle}
+                  </p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                    {social.desc}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
 };

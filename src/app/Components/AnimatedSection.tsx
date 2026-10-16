@@ -8,7 +8,7 @@ const AnimatedSection = ({ children, className = "" }: { children: React.ReactNo
     return (
         <div
             ref={ref as React.RefObject<HTMLDivElement>}
-            className={`transition-all duration-700 ease-in-out ${className} ${
+            className={`motion-safe:transition-all motion-safe:duration-700 motion-safe:ease-out ${className} ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >

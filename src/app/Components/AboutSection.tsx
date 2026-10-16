@@ -1,49 +1,139 @@
-"use client"
+"use client";
 import AnimatedSection from "./AnimatedSection";
-import { useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { EyeOffIcon, Eye } from "lucide-react";
-
+import { ChevronDown, ChevronUp, Code2, Cpu, Sparkles, Users } from "lucide-react";
 
 export const About = () => {
-    const [readMore, setReadMove] = useState(false)
+  const [readMore, setReadMore] = useState(false);
 
-    const handleReadMore = () => {
-        setReadMove(!readMore)
-    }
-    return (
-        <section id="about" className="py-20 pt-10 sm:mx-20 bg-white dark:bg-slate-900">
-            <div className="containe mx-auto px-6">
-                <AnimatedSection>
-                    <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-800 dark:text-slate-100 mb-12">About Me</h2>
-                    <div className="grid md:grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-                        <div className="md:col-span-2">
-                            <div className="relative">
-                                <div className="absolute -top-4 -left-4 w-full h-full bg-slate-200 dark:bg-slate-700 rounded-lg transform -rotate-3"></div>
-                                <Image src={'/Images/aboutImage.png'} alt="About Akinola Femi" width={100} height={100} className="relative w-[fit-content] bg-zinc-300 rounded-lg shadow-lg h-[97vh] max-sm:h-fit  object-cover" />
-                            </div>
-                        </div>
-                        <div className="md:col-span-3">
-                            <p className="text-slate-600 dark:text-slate-300 text-lg mb-4">I&apos;m a highly skilled full-stack developer passionate about delivering high-quality, scalable applications. With hands-on experience in backend development using Node.js, frontend expertise in Next.js and TypeScript, and contributions to fintech, I consistently strive for excellence.</p>
-                            {readMore && (
-                                <p className="text-slate-600 dark:text-slate-300 text-lg mb-6">Beyond coding, I create motivational content to inspire and empower junior developers, providing them with resources, guidance, and practical advice to grow in their careers. My diverse experience in business management and technology gives me a unique perspective on driving impactful projects.</p>
-                            )}
-                            <div onClick={handleReadMore} className='text-center mb-4 flex place--center'>
-                                <button onClick={handleReadMore} className="flex items-center gap-4 text-sm  hover:bg-gray-800 transition-all border p-1 px-2 rounded-full cursor-pointer">
-                                    {readMore ? <EyeOffIcon /> : <Eye />}
-                                    {readMore ? 'Show Less' : 'Read More'}
-                                </button>
-                            </div>
-                            <div className="flex flex-wrap gap-4">
-                                <div className="bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold px-4 py-2 rounded-full">Coding</div>
-                                <div className="bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 font-semibold px-4 py-2 rounded-full">Music</div>
-                                <div className="bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold px-4 py-2 rounded-full">Vacation Trips</div>
-                                <div className="bg-yellow-100 dark:bg-yellow-900/50 text-yellow-700 dark:text-yellow-300 font-semibold px-4 py-2 rounded-full">Mentoring</div>
-                            </div>
-                        </div>
+  const pillars = [
+    {
+      icon: <Code2 size={18} className="text-blue-500" />,
+      title: "Clean Architecture",
+      desc: "Separation of concerns, modular domain services, and typed contracts.",
+    },
+    {
+      icon: <Cpu size={18} className="text-indigo-500" />,
+      title: "High Performance",
+      desc: "Optimized rendering cycles, snappy interactions, and lean payloads.",
+    },
+    {
+      icon: <Users size={18} className="text-emerald-500" />,
+      title: "Team Leadership",
+      desc: "Code reviews, backlog management, and mentoring junior engineers.",
+    },
+    {
+      icon: <Sparkles size={18} className="text-amber-500" />,
+      title: "Product Mindset",
+      desc: "Aligning technical execution with business value and UX standards.",
+    },
+  ];
+
+  return (
+    <section id="about" className="py-24 bg-white dark:bg-[#0f172a] border-y border-slate-200/80 dark:border-slate-800/80">
+      <div className="max-w-6xl mx-auto px-6">
+        <AnimatedSection>
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+              Engineering Philosophy & Background
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
+              Building With Craftsmanship & Business Focus
+            </h2>
+            <p className="text-base text-slate-600 dark:text-slate-400">
+              Transforming complex product requirements into resilient, user-centric software that scales seamlessly.
+            </p>
+          </div>
+        </AnimatedSection>
+
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Image & Photo Frame */}
+          <div className="lg:col-span-5 flex justify-center">
+            <AnimatedSection className="w-full max-w-md">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 shadow-xl">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src="/Images/aboutImage.png"
+                    alt="Akinola Femi"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 400px"
+                    className="object-cover object-top hover:scale-102 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">
+                      Akinola Femi
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Lagos, Nigeria • Remote Globally
+                    </p>
+                  </div>
+                  <span className="px-2.5 py-1 rounded-md text-xs font-semibold bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-900">
+                    Full-Stack
+                  </span>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Narrative & Pillars */}
+          <div className="lg:col-span-7">
+            <AnimatedSection>
+              <div className="space-y-4 text-slate-600 dark:text-slate-300 text-base leading-relaxed">
+                <p>
+                  I am a results-oriented Full-Stack Software Engineer with genuine production experience designing, developing, and deploying mission-critical applications. My engineering foundation spans low-latency real-time platforms, high-conversion commercial e-commerce systems, and robust fintech integrations.
+                </p>
+                <p>
+                  On the backend, I design reliable RESTful micro-services and event-driven APIs using <strong className="text-slate-900 dark:text-white font-semibold">Node.js, Express, and Python</strong>, with secure role-based access controls and relational modeling in <strong className="text-slate-900 dark:text-white font-semibold">PostgreSQL & Prisma</strong>. On the client side, I architect modular, accessible, and responsive interfaces with <strong className="text-slate-900 dark:text-white font-semibold">TypeScript, React, and Next.js</strong>.
+                </p>
+
+                {readMore && (
+                  <div className="pt-2 space-y-4 border-t border-slate-200 dark:border-slate-800 animate-fadeIn">
+                    <p>
+                      Beyond building systems, I have actively led engineering teams—defining code review standards, managing delivery backlogs, and architecting key platform initiatives such as the QikTalk chat engine for over 50,000 users.
+                    </p>
+                    <p>
+                      I am also dedicated to community advancement, actively publishing educational content and mentoring junior engineers to establish solid foundations in modern software design patterns and industry workflows.
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-6 mb-8">
+                <button
+                  onClick={() => setReadMore(!readMore)}
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                >
+                  <span>{readMore ? "Show Less" : "Read Full Story & Leadership Background"}</span>
+                  {readMore ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                </button>
+              </div>
+
+              {/* Core Engineering Pillars */}
+              <div className="grid sm:grid-cols-2 gap-4 pt-6 border-t border-slate-200 dark:border-slate-800">
+                {pillars.map((pillar) => (
+                  <div
+                    key={pillar.title}
+                    className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-700/60"
+                  >
+                    <div className="flex items-center gap-2 mb-1">
+                      {pillar.icon}
+                      <h4 className="font-bold text-sm text-slate-900 dark:text-white">
+                        {pillar.title}
+                      </h4>
                     </div>
-                </AnimatedSection>
-            </div>
-        </section>
-    )
-}
+                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                      {pillar.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

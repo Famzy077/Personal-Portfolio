@@ -37,8 +37,9 @@ if (typeof window !== 'undefined') {
   });
 }
 
-// Enable detailed logging for debugging Firestore issues
-setLogLevel('debug');
+if (process.env.NODE_ENV === "development") {
+  setLogLevel("debug");
+}
 
 // Export all the services for use in other parts of your app
 export { db, auth, storage, analytics, app };

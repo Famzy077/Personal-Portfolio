@@ -2,49 +2,77 @@ import type { Metadata } from "next";
 import { FirebaseProvider } from "./contexts/FirebaseProvider";
 import { ThemeProvider } from "./Theme/ThemeProvider";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Toaster } from 'react-hot-toast';
-import { Analytics } from "@vercel/analytics/next"
+import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import React from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
-export const metadata: Metadata  = {
-  title: 'Akinola Femi - Portfolio',
-  description: 'The portfolio of Akinola Femi, a full-stack developer.',
+export const metadata: Metadata = {
+  title: "Akinola Femi — Full-Stack Software Engineer",
+  description:
+    "Portfolio of Akinola Femi, a mid-level Full-Stack Software Engineer specializing in TypeScript, React, Next.js, Node.js, Python, and scalable distributed architectures.",
+  keywords: [
+    "Akinola Femi",
+    "Full-Stack Software Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "Node.js Developer",
+    "TypeScript",
+    "Python",
+    "Software Engineer Portfolio",
+  ],
+  authors: [{ name: "Akinola Femi" }],
+  openGraph: {
+    title: "Akinola Femi — Full-Stack Software Engineer",
+    description:
+      "Engineering high-performance web applications and robust architectures for global scale.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Akinola Femi — Full-Stack Software Engineer",
+    description:
+      "Full-stack software engineering portfolio specializing in TypeScript, React, Next.js, and Node.js.",
+  },
 };
 
 export default function RootLayout({
-   children, }: Readonly<{
-    children: React.ReactNode;
-   }>) {
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} suppressHydrationWarning>
-
+    <html lang="en" suppressHydrationWarning className="dark">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased selection:bg-brand-500 selection:text-white`}
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           <FirebaseProvider>
-              <div className="bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 font-sans">
-                <style>{`
-                  @keyframes float { 
-                    0% { transform: translateY(0px); } 
-                    50% { transform: translateY(-10px); } 
-                    100% { transform: translateY(0px); } 
-                  } 
-                  .animate-float { animation: float 6s ease-in-out infinite; }
-                `}</style>
-                {children}
-                <Analytics />                
-              <Toaster position="top-right" />
-              </div>
+            <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 transition-colors duration-200">
+              {children}
+              <Analytics />
+              <Toaster
+                position="top-right"
+                toastOptions={{
+                  className:
+                    "bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 shadow-xl",
+                }}
+              />
+            </div>
           </FirebaseProvider>
         </ThemeProvider>
       </body>
