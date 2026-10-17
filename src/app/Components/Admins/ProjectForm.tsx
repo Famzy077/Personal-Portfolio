@@ -126,6 +126,7 @@ const ProjectForm: FC<ProjectFormProps> = ({
               className="w-full px-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 text-slate-900 dark:text-white outline-none transition-all"
             >
               <option value="Frontend">Frontend</option>
+              <option value="Mobile">Mobile</option>
               <option value="Backend">Backend</option>
             </select>
           </div>

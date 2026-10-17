@@ -130,7 +130,7 @@ export const Hero = () => {
                 {/* Floating engineer badge */}
                 <div className="absolute -bottom-4 -left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-slate-200 dark:border-slate-800 shadow-lg rounded-xl p-3 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-950 flex items-center justify-center text-blue-600 dark:text-blue-400 font-bold text-sm">
-                    10K+
+                    5K+
                   </div>
                   <div className="text-left">
                     <p className="text-xs font-bold text-slate-800 dark:text-slate-100 leading-tight">
@@ -159,7 +159,7 @@ export const Hero = () => {
             </div>
             <div className="p-4 rounded-xl bg-white/50 dark:bg-slate-900/40 border border-slate-200/60 dark:border-slate-800/60">
               <p className="text-xl md:text-3xl font-extrabold text-slate-900 dark:text-white mb-1">
-                50,000+
+                5000+
               </p>
               <p className="text-xs md:text-sm font-medium text-slate-600 dark:text-slate-400">
                 Concurrent Platform Users

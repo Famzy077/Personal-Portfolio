@@ -2,7 +2,7 @@ export interface Project {
     id: string;
     title: string;
     description: string;
-    category: 'Frontend' | 'Backend';
+    category: 'Frontend' | 'Mobile' | 'Backend' | string;
     imageUrl: string;
     liveUrl: string;
     githubUrl: string;

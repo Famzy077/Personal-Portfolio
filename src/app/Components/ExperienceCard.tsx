@@ -54,9 +54,9 @@ const experience = [
   {
     role: "Frontend Developer (Freelance)",
     company: "The FourDev",
-    period: "January 2025 – Present",
+    period: "January 2025 – November 2025",
     location: "Lagos State, Nigeria • Remote",
-    current: true,
+    current: false,
     points: [
       "Built pixel-perfect, accessible, and responsive web interfaces using React, Next.js, TypeScript, and Tailwind CSS.",
       "Translated Figma/UI designs into interactive, reusable components while focusing on performance and accessibility standards.",
@@ -205,7 +205,7 @@ export const ExperienceSection = () => (
 
           <div>
             {experience.map((item, idx) => (
-              <AnimatedSection key={`${item.company}-${idx}`}>
+              <AnimatedSection className="mb-5" key={`${item.company}-${idx}`}>
                 <TimelineCard
                   role={item.role}
                   company={item.company}

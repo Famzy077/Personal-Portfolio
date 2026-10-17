@@ -51,7 +51,7 @@ export const About = () => {
           {/* Image & Photo Frame */}
           <div className="lg:col-span-5 flex justify-center">
             <AnimatedSection className="w-full max-w-md">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800 shadow-xl">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 shadow-xl">
                 <div className="relative aspect-[4/5] w-full">
                   <Image
                     src="/Images/aboutImage.png"

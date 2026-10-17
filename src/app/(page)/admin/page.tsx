@@ -20,7 +20,7 @@ import { ArrowLeft, ShieldCheck, Loader2 } from "lucide-react";
 import ThemeToggle from "../../Theme/ThemeProvider";
 
 const AdminPage = () => {
-  const { publicProjectsPath, isAuthReady, userId } = useFirebase();
+  const { publicProjectsPath, isAuthReady } = useFirebase();
   const [projects, setProjects] = useState<Project[]>([]);
   const [currentProject, setCurrentProject] = useState<Omit<Project, "id">>({
     title: "",

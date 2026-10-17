@@ -168,7 +168,7 @@ export const ProjectSection = () => {
     return () => unsubscribe();
   }, [isAuthReady, publicProjectsPath, isSectionVisible]);
 
-  const categories = ["All", "Frontend", "Backend"];
+  const categories = ["All", "Frontend", "Mobile", "Backend"];
   const filteredProjects =
     selectedCategory === "All"
       ? projects
