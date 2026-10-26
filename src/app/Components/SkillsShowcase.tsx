@@ -1,5 +1,6 @@
 "use client";
 import AnimatedSection from "./AnimatedSection";
+import Tilt3DCard from "./Tilt3DCard";
 import React from "react";
 import {
   SiNextdotjs,
@@ -79,7 +80,7 @@ const devopsSkills: Skill[] = [
 ];
 
 const SkillBadge = ({ skill }: { skill: Skill }) => (
-  <div className="group flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:shadow-md transition-all duration-200">
+  <div className="group flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
     <div
       className="flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 text-xl transition-transform group-hover:scale-110"
       style={{ color: skill.brandColor === "#ffffff" ? undefined : skill.brandColor }}
@@ -94,12 +95,12 @@ const SkillBadge = ({ skill }: { skill: Skill }) => (
 
 export const SkillsShowcase = () => {
   return (
-    <section id="skills" className="py-20 bg-slate-100/60 dark:bg-[#0b0f19]">
+    <section id="skills" className="relative z-10 py-24 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">
         <AnimatedSection>
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-              Technical Stack & Competencies
+              Technical Stack &amp; Competencies
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">
               Technologies I Build Production Software With
@@ -113,98 +114,106 @@ export const SkillsShowcase = () => {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Frontend Section */}
           <AnimatedSection>
-            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
-              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
-                <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
-                  <Layers size={20} />
+            <Tilt3DCard maxTilt={5} className="rounded-2xl h-full">
+              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm shadow-sm">
+                <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                  <div className="p-2 rounded-lg bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400">
+                    <Layers size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                      Frontend Architecture
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Component design, reactive state, responsive UX
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
-                    Frontend Architecture
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Component design, reactive state, responsive UX
-                  </p>
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                  {frontendSkills.map((skill) => (
+                    <SkillBadge key={skill.name} skill={skill} />
+                  ))}
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
-                {frontendSkills.map((skill) => (
-                  <SkillBadge key={skill.name} skill={skill} />
-                ))}
-              </div>
-            </div>
+            </Tilt3DCard>
           </AnimatedSection>
 
           {/* Backend Section */}
           <AnimatedSection>
-            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
-              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
-                <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
-                  <Server size={20} />
+            <Tilt3DCard maxTilt={5} className="rounded-2xl h-full">
+              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm shadow-sm">
+                <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                  <div className="p-2 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
+                    <Server size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                      Backend &amp; API Systems
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      REST APIs, real-time messaging, auth &amp; security
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
-                    Backend & API Systems
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    REST APIs, real-time messaging, auth & security
-                  </p>
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                  {backendSkills.map((skill) => (
+                    <SkillBadge key={skill.name} skill={skill} />
+                  ))}
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
-                {backendSkills.map((skill) => (
-                  <SkillBadge key={skill.name} skill={skill} />
-                ))}
-              </div>
-            </div>
+            </Tilt3DCard>
           </AnimatedSection>
 
           {/* Database Section */}
           <AnimatedSection>
-            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
-              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
-                <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
-                  <Database size={20} />
+            <Tilt3DCard maxTilt={5} className="rounded-2xl h-full">
+              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm shadow-sm">
+                <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                  <div className="p-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400">
+                    <Database size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                      Data Persistence &amp; Storage
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Relational SQL, document databases, caching &amp; ORMs
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
-                    Data Persistence & Storage
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Relational SQL, document databases, caching & ORMs
-                  </p>
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                  {databaseSkills.map((skill) => (
+                    <SkillBadge key={skill.name} skill={skill} />
+                  ))}
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
-                {databaseSkills.map((skill) => (
-                  <SkillBadge key={skill.name} skill={skill} />
-                ))}
-              </div>
-            </div>
+            </Tilt3DCard>
           </AnimatedSection>
 
           {/* DevOps & Tools Section */}
           <AnimatedSection>
-            <div className="h-full p-6 rounded-2xl bg-white/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm">
-              <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
-                <div className="p-2 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
-                  <Wrench size={20} />
+            <Tilt3DCard maxTilt={5} className="rounded-2xl h-full">
+              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-800/80 backdrop-blur-sm shadow-sm">
+                <div className="flex items-center gap-2.5 mb-6 pb-3 border-b border-slate-200/70 dark:border-slate-800">
+                  <div className="p-2 rounded-lg bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400">
+                    <Wrench size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white">
+                      DevOps &amp; Workflow Tooling
+                    </h3>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Containerization, CI/CD, Git workflows &amp; environments
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg text-slate-900 dark:text-white">
-                    DevOps & Workflow Tooling
-                  </h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
-                    Containerization, CI/CD, Git workflows & environments
-                  </p>
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
+                  {devopsSkills.map((skill) => (
+                    <SkillBadge key={skill.name} skill={skill} />
+                  ))}
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-3">
-                {devopsSkills.map((skill) => (
-                  <SkillBadge key={skill.name} skill={skill} />
-                ))}
-              </div>
-            </div>
+            </Tilt3DCard>
           </AnimatedSection>
         </div>
       </div>

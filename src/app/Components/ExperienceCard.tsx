@@ -11,7 +11,7 @@ const experience = [
     location: "Nigeria • Remote",
     current: true,
     points: [
-      "Directed full-stack aspects of the QikTalk real-time chat platform (50,000+ users), contributing to low-latency architecture, defining code standards, and managing technical backlogs.",
+      "Directed full-stack aspects of the QikTalk real-time chat platform (5,000+ users), contributing to low-latency architecture, defining code standards, and managing technical backlogs.",
       "Owned frontend architecture and delivery of scalable, data-driven React components for Givvo's \"Buy Crypto\" platform, including UI implementation and efficient local state management.",
       "Built and maintained high-performance, responsive user interfaces for the official Naelix website using React, Next.js, TypeScript, and Tailwind CSS.",
       "Engineered reusable component libraries and optimized performance through code reviews and modern frontend patterns.",
@@ -173,7 +173,7 @@ const TimelineCard: FC<TimelineProps> = ({
 );
 
 export const ExperienceSection = () => (
-  <section id="experience" className="py-24 bg-white dark:bg-[#0f172a] border-y border-slate-200/80 dark:border-slate-800/80">
+  <section id="experience" className="relative z-10 py-24 bg-transparent border-y border-slate-200/60 dark:border-slate-800/60">
     <div className="max-w-6xl mx-auto px-6">
       <AnimatedSection>
         <div className="text-center max-w-2xl mx-auto mb-16">

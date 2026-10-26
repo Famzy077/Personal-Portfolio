@@ -8,12 +8,14 @@ import { ProjectSection } from "@/app/Components/ProjectSection";
 import { ExperienceSection } from "@/app/Components/ExperienceCard";
 import { Contact } from "@/app/Components/Contact";
 import { Footer } from "@/app/Components/Footer";
+import { Dev3DBackground } from "@/app/Components/Dev3DBackground";
 
 const PortfolioPage = () => {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200">
+    <div className="portfolio-blueprint-surface relative min-h-screen bg-slate-50 dark:bg-[#0b0f19] text-slate-800 dark:text-slate-200 overflow-x-hidden">
+      <Dev3DBackground />
       <Header />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <SkillsShowcase />
@@ -21,7 +23,9 @@ const PortfolioPage = () => {
         <ExperienceSection />
         <Contact />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
     </div>
   );
 };

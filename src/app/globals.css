@@ -6,6 +6,8 @@
   :root {
     --skeleton-base: #e2e8f0;
     --skeleton-highlight: #f1f5f9;
+    --progress: 0;
+    --hero-scroll: 0;
   }
 
   .dark {
@@ -55,8 +57,27 @@
 
 .portfolio-hero {
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgb(59 130 246 / 10%), transparent 55%),
-    linear-gradient(to bottom, transparent, rgb(15 23 42 / 2%));
+    radial-gradient(ellipse at 50% 0%, rgb(59 130 246 / 14%), transparent 60%);
+}
+
+.portfolio-blueprint-surface {
+  background-image:
+    radial-gradient(ellipse at 15% 25%, rgb(59 130 246 / 7%), transparent 45%),
+    radial-gradient(ellipse at 85% 55%, rgb(99 102 241 / 7%), transparent 45%),
+    radial-gradient(ellipse at 50% 85%, rgb(59 130 246 / 8%), transparent 50%),
+    linear-gradient(to right, rgb(148 163 184 / 7%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(148 163 184 / 7%) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+}
+
+.dark .portfolio-blueprint-surface {
+  background-image:
+    radial-gradient(ellipse at 15% 25%, rgb(59 130 246 / 10%), transparent 45%),
+    radial-gradient(ellipse at 85% 55%, rgb(99 102 241 / 9%), transparent 45%),
+    radial-gradient(ellipse at 50% 85%, rgb(59 130 246 / 10%), transparent 50%),
+    linear-gradient(to right, rgb(59 130 246 / 5%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(59 130 246 / 5%) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
 }
 
 .hero-orb {
@@ -73,6 +94,150 @@
     opacity: 1;
     transform: scale(1.06);
   }
+}
+
+/* Living Blueprint Scroll-Driven Schematic Styles */
+.bp-plane-circles {
+  transform: translate3d(0, calc(var(--progress, 0) * -46px), 0);
+}
+
+.bp-plane-lines {
+  transform: translate3d(0, calc(var(--progress, 0) * -14px), 0);
+}
+
+.bp-scroll-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1px;
+  opacity: 0;
+}
+
+.bp-stroke-main {
+  stroke: rgba(71, 85, 105, 0.45);
+}
+
+.dark .bp-stroke-main {
+  stroke: rgba(148, 163, 184, 0.38);
+}
+
+.bp-stroke-strong {
+  stroke: rgba(51, 65, 85, 0.62);
+}
+
+.dark .bp-stroke-strong {
+  stroke: rgba(203, 213, 225, 0.55);
+}
+
+.bp-stroke-accent {
+  stroke: #2563eb;
+  stroke-opacity: 0.65;
+}
+
+.dark .bp-stroke-accent {
+  stroke: #60a5fa;
+  stroke-opacity: 0.68;
+}
+
+.bp-scroll-pulse {
+  stroke: #2563eb;
+  stroke-dasharray: 0.14 1;
+  stroke-dashoffset: 1.02px;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.65));
+}
+
+.dark .bp-scroll-pulse {
+  stroke: #60a5fa;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.8));
+}
+
+.bp-scroll-node {
+  transform-box: fill-box;
+  transform-origin: 50%;
+  opacity: 0;
+}
+
+.bp-node-accent {
+  fill: #2563eb;
+  fill-opacity: 0.95;
+}
+
+.dark .bp-node-accent {
+  fill: #60a5fa;
+  fill-opacity: 0.95;
+}
+
+.bp-node-muted {
+  fill: rgba(100, 116, 139, 0.82);
+}
+
+.dark .bp-node-muted {
+  fill: rgba(148, 163, 184, 0.78);
+}
+
+.bp-node-hollow {
+  fill: #f8fafc;
+  stroke: rgba(71, 85, 105, 0.85);
+  stroke-width: 1.3px;
+}
+
+.dark .bp-node-hollow {
+  fill: #0b0f19;
+  stroke: rgba(148, 163, 184, 0.88);
+  stroke-width: 1.3px;
+}
+
+/* Hero Architectural Scroll Bridge */
+.hero-bridge-planes {
+  transform: translateY(calc(var(--hero-scroll, 0) * 3px));
+  transition: transform 0.12s linear;
+}
+
+.hero-bridge-plane-1 {
+  transform: translate3d(0, calc(var(--hero-scroll, 0) * -4px), 0);
+}
+
+.hero-bridge-plane-2 {
+  transform: translate3d(0, calc(var(--hero-scroll, 0) * 2px), 0);
+}
+
+.hero-bridge-plane-3 {
+  transform: translate3d(0, calc(var(--hero-scroll, 0) * 8px), 0);
+}
+
+.hero-conduit-pulse {
+  transform: translateY(calc(var(--hero-scroll, 0) * 26px));
+  animation: 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite conduit-flow;
+}
+
+@keyframes conduit-flow {
+  0% {
+    opacity: 0.2;
+    transform: translateY(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+    transform: translateY(200%);
+  }
+}
+
+/* 3D Dev Vibes Animations & Perspective Utilities */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.translate-z-10 {
+  transform: translateZ(16px);
+}
+
+.translate-z-20 {
+  transform: translateZ(32px);
+}
+
+.translate-z-30 {
+  transform: translateZ(48px);
 }
 
 @media (prefers-reduced-motion: reduce) {

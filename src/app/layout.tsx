@@ -19,7 +19,16 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  ? process.env.NEXT_PUBLIC_SITE_URL
+  : process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Akinola Femi — Full-Stack Software Engineer",
   description:
     "Portfolio of Akinola Femi, a mid-level Full-Stack Software Engineer specializing in TypeScript, React, Next.js, Node.js, Python, and scalable distributed architectures.",
@@ -40,12 +49,21 @@ export const metadata: Metadata = {
       "Engineering high-performance web applications and robust architectures for global scale.",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/Images/HeroPic.png",
+        width: 800,
+        height: 800,
+        alt: "Akinola Femi — Full-Stack Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Akinola Femi — Full-Stack Software Engineer",
     description:
       "Full-stack software engineering portfolio specializing in TypeScript, React, Next.js, and Node.js.",
+    images: ["/Images/HeroPic.png"],
   },
 };
 

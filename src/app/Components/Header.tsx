@@ -38,8 +38,8 @@ export const Header = () => {
 
   const navLinks = [
     { label: "About", href: "#about" },
-    { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#projects" },
     { label: "Experience", href: "#experience" },
     { label: "Contact", href: "#contact" },
   ];
@@ -110,6 +110,12 @@ export const Header = () => {
             </button>
           </div>
         </nav>
+        {/* Scroll Progress Bar */}
+        <div
+          aria-hidden="true"
+          className="absolute left-0 bottom-[-1px] h-[2px] w-full origin-left bg-blue-600 dark:bg-blue-400"
+          style={{ transform: "scaleX(var(--progress, 0))" }}
+        />
       </header>
 
       {/* Mobile drawer */}
