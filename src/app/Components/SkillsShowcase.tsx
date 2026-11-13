@@ -28,6 +28,7 @@ import {
   SiCloudinary,
   SiFirebase,
   SiRender,
+  SiNestjs,
 } from "react-icons/si";
 import { VscTerminalBash } from "react-icons/vsc";
 import { Clock, Layers, Server, Database, Wrench } from "lucide-react";
@@ -52,6 +53,7 @@ const frontendSkills: Skill[] = [
 
 const backendSkills: Skill[] = [
   { name: "Node.js", icon: <SiNodedotjs />, brandColor: "#339933" },
+  { name: "Nest.js", icon: <SiNestjs />, brandColor: "#339933" },
   { name: "Express.js", icon: <SiExpress />, brandColor: "#ffffff" },
   { name: "Python", icon: <SiPython />, brandColor: "#3776AB" },
   { name: "FastAPI", icon: <SiFastapi />, brandColor: "#009688" },
